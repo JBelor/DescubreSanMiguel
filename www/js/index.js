@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+ /* Parte del spash*/
 (function(){
     var preload = document.getElementById("preload");
     var loading = 0;
@@ -24,7 +26,7 @@
     function frame(){
         if(loading == 100){
             clearInterval(id);
-            window.open("principal.html");
+            window.location.href="principal.html";
         }else{
             loading = loading + 1;
             if(loading == 90){
@@ -35,6 +37,7 @@
 })();
 
 
+/*Parte de la app del cordova original*/
 var app = {
     // Application Constructor
     initialize: function() {
