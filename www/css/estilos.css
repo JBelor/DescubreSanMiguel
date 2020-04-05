@@ -3,6 +3,7 @@ body {
     background:url(../img/Catedral.jpg) no-repeat center top;
     background-color: #333;
     width:100%;
+    
 }
 
 header {
@@ -142,11 +143,12 @@ h2{
 }
 
 footer{
-    color: white;
-    font-size: large;
+    color:white;
+    font-size: 20px;
     padding: 6%;
     padding-left: 2%;
     text-align: center;
+    font-weight: bold;
 }
 
 
@@ -192,6 +194,13 @@ footer{
         padding: 10%;
         text-align: center;
     }
+
+    #card1,#card2,#card3,#card4{
+        margin: 6%;
+    }
+    body{
+        background-size: cover;
+    }
 }
 
 @media (min-width:768px){
@@ -201,6 +210,8 @@ footer{
     }
 }
 
+
+
 h1{
     text-align: center;
     color: rgb(252, 249, 249);
@@ -208,8 +219,7 @@ h1{
     font-weight: bold;
     margin-left: 0px;
     background-color: teal;
-    margin: 10px
-    ; 
+    margin: 10px;
 }
 
 #text{
