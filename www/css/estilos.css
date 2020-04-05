@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
     background:url(../img/Catedral.jpg) no-repeat center top;
-    background-color: rgb(19, 18, 18);
+    background-color: #333;
     width:100%;
 }
 
@@ -69,8 +69,7 @@ div{
 }
 
 #card1{
-    background: rgb(30, 5, 143);
-    opacity: 0.7;
+    background: rgba(30, 5, 143, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -83,12 +82,10 @@ div{
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    z-index: 1;
 }
 
 #card2{
-    background: rgb(40, 177, 6);
-    opacity: 0.7;
+    background: rgba(40, 177, 6, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -104,8 +101,7 @@ div{
 }
 
 #card3{
-    background: rgb(245, 44, 44);
-    opacity: 0.7;
+    background: rgb(245, 44, 44, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -121,8 +117,7 @@ div{
 }
 
 #card4{
-    background: rgb(103, 12, 145);
-    opacity: 0.7;
+    background: rgb(103, 12, 145, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -150,6 +145,7 @@ footer{
     color: white;
     font-size: large;
     padding: 6%;
+    padding-left: 2%;
     text-align: center;
 }
 
@@ -166,6 +162,7 @@ footer{
         margin-left: -90%;
         transition: all 0.5s;  
         z-index: 100;
+        font-weight: bold;
     }
 
     .menu ul{
@@ -185,8 +182,8 @@ footer{
     }
 
     .link{
+        display: block , flex;
         flex-direction: column;
-        display: grid;
         justify-items: center;
         padding-left: -15%; 
     }
@@ -201,9 +198,7 @@ footer{
     h2{
         margin-left: 50%;
         margin-top: 0px;
-        
     }
-
 }
 
 h1{
@@ -217,8 +212,9 @@ h1{
     ; 
 }
 
-input{
-    margin: 10px;
-    padding-left: 150px; 
+#text{
+    margin-left: 30%;
+    padding-left: 20%;
+    font-weight: bold;
 }
 

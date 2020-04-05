@@ -69,8 +69,7 @@ div{
 }
 
 #card1{
-    background: rgb(30, 5, 143);
-    opacity: 0.7;
+    background: rgba(30, 5, 143, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -83,12 +82,10 @@ div{
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    z-index: 1;
 }
 
 #card2{
-    background: rgb(40, 177, 6);
-    opacity: 0.7;
+    background: rgba(40, 177, 6, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -104,8 +101,7 @@ div{
 }
 
 #card3{
-    background: rgb(245, 44, 44);
-    opacity: 0.7;
+    background: rgb(245, 44, 44, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -121,8 +117,7 @@ div{
 }
 
 #card4{
-    background: rgb(103, 12, 145);
-    opacity: 0.7;
+    background: rgb(103, 12, 145, 0.820);
     color: white;
     margin-left: 3%;
     height: 90px;  
@@ -185,8 +180,8 @@ footer{
     }
 
     .link{
+        display: block , flex;
         flex-direction: column;
-        display: grid;
         justify-items: center;
         padding-left: -15%; 
     }
@@ -218,7 +213,9 @@ h1{
 }
 
 input{
+    display: flex;
+    justify-content: center;
     margin: 10px;
-    padding-left: 150px; 
+    padding-left: 20%; 
 }
 
