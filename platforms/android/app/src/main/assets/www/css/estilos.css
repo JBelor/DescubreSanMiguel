@@ -1,16 +1,19 @@
+@import"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 body {
     font-family: sans-serif;
-    background:url(../img/Catedral.jpg) no-repeat center top;
+    background:url(../img/Catedral.jpg) no-repeat;
     background-color: #333;
     width:100%;
-    
+    background-size: cover;
+    background-position: center;
 }
 
 header {
-     width: 100%;
+     width: 98%;
      background: rgb(19, 18, 18) ; 
      opacity: 0.8;
      z-index: 9999999;
+
 }
 
 #btn-menu {
@@ -80,7 +83,9 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 12px;
+    text-shadow: 2px 4px #161816; 
+
 }
 
 #card2{
@@ -96,7 +101,9 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;  
+    margin-top: 12px;  
+    text-shadow: 2px 4px #161816; 
+
 }
 
 #card3{
@@ -112,7 +119,9 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;  
+    margin-top: 12px;  
+    text-shadow: 2px 4px #161816; 
+
 }
 
 #card4{
@@ -128,7 +137,25 @@ div{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;    
+    margin-top: 12px;  
+    text-shadow: 2px 4px #161816; 
+}
+
+#card5{
+    background: rgba(233, 255, 36, 0.82);
+    color: white;
+    margin-left: 3%;
+    height: 90px;  
+    padding: 5px 40px;
+    width: 240px;
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;   
+    text-shadow: 2px 4px #161816; 
 }
 
 h2{
@@ -152,10 +179,198 @@ footer{
     padding-left: 2%;
     text-align: center;
     font-weight: bold;
+    text-shadow: 2px 4px #161816;
+}
+h1{
+    text-align: center;
+    color: rgb(252, 249, 249);
+    font-size: 50px;
+    font-weight: bold;
+    background-color: teal;
+    width: 98%;
+    justify-items: center;
+    flex: auto;
 }
 
 
+input{
+    margin-left: 50px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
+    transition: 0.3s;
+    width: 25rem; 
+    background: white;
+    margin: 15px;
+    margin-left: 30px;
+
+  }
+  
+  .container {
+    padding: 0px 12px;
+    margin: 0px 12px;
+  }
+
+  .btn-primary{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    margin-left: 20px;
+  }
+  .btn-segundary{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #04811f;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    margin-left: 50px;
+  }
+
+p{
+    margin-top: 0px;
+    margin-bottom: 30px;
+    user-select: none;
+    word-wrap: break-word;
+}
+.card-con{
+    box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
+    width: 25rem; 
+    background: rgba(19, 18, 18, 0.705) ;
+    margin: 15px;
+    margin-left: 30px;
+    
+}
+.inform{
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    text-shadow: 2px 4px rgb(3, 107, 46);
+}
+.text-info{
+    color: #fff;
+}
+
+.referencias{
+    list-style: none;
+    width: 20rem;
+    justify-content: center;
+    
+}
+.referencias li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    justify-content: center;
+}
+.referencias li:hover {
+    background: rgb(165, 165, 165);
+}
+.referencias li  {
+    border: 4px solid #fff;
+    margin: 1px;
+    text-align: center;
+}
+.login{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    margin-right: 45px;  
+}
+.card-login{
+    box-shadow: 2px 8px 8px 2px rgb(14, 12, 12);
+    width: 25rem; 
+    background: rgba(19, 18, 18, 0.705) ;
+    margin: 100px;
+    text-align: center;
+    margin-left: 112px;
+    margin-top: 20px;
+}
+.botton-login{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    justify-content: center;
+    border: 3px solid #fff;
+    margin-left: 30%;
+    background: #08f13a60;
+    padding: 5px;
+}
+
+.textbox{
+    margin: 5% 0;
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    border-bottom: 2px solid #4caf50;
+}
+
+.textbox i{
+    color: #fff;
+    float: left;
+    text-align: center;
+    font-size: 200%;
+    width: 20%;
+}
+
+.textbox input{
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    width: 290px;
+    float: left;
+    margin: 0px;
+    padding: 10px;
+    background: none;
+    font-weight: bold;
+
+}
+
+.bottom-regi{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    margin-left: 5px;
+}
+.bottom-ingre{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #04811f;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    margin-left: 50px;
+    padding-left: 26px;
+
+}
+
+
+
 @media (max-width:768px){
+
+    header{
+        max-width: 96%;
+    }
     header label{
         display:block;
     }
@@ -191,7 +406,7 @@ footer{
     }
 
     .link{
-        display: block , flex;
+        display: flex;
         flex-direction: column;
         justify-items: center;
         padding-left: -15%; 
@@ -202,13 +417,15 @@ footer{
         text-align: center;
     }
 
-    #card1,#card2,#card3,#card4{
-        margin: 6%;
+    #card1,#card2,#card3,#card4,#card5{
+        margin: 3%;
     }
     body{
         background-size: cover;
     }
-
+    h1 , .card ,.card-con{
+        max-width: 96%;
+    }
 }
 
 @media (min-width:768px){
@@ -218,60 +435,49 @@ footer{
     }
 }
 
-
-h1{
-    text-align: center;
-    color: rgb(252, 249, 249);
-    font-size: 50px;
-    font-weight: bold;
-    margin-left: 0px;
-    background-color: teal;
-    margin: 10px;
-    width: 90%;
+@media (max-width:377px){
+    h2, h1{
+        font-size: 10vw;
+ }
+ .card ,.card-con{
+     display: flexbox;
+     font-size: 10vm;
+     margin-left: 2px;
+ }
+ .btn-primary , .btn-segundary{
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+ }
+ .btn-segundary{
+     margin-right: 35px;
+ }
 }
 
-input{
-    margin-left: 50px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
-    transition: 0.3s;
-    width: 25rem; 
-    background: white;
-    margin: 15px;
-    margin-left: 30px;
-
-  }
   
-  .container {
-    padding: 0px 12px;
-  }
 
-  .btn-primary{
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 20px;
-  }
-  .btn-segundary{
-    text-decoration: none;
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    color: #ffffff;
-    background-color: #04811f;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 50px;
-  }
+@media (max-width:340px){
+    .login{
+        display: contents;
+        font-size: 10vw;
+    }
+    .card-login{
+        display: table-cell;
+        font-size: 10vw;
+        width: 5px
+    
+    }
+    .bottom-ingre{
+        margin-right: 30px;
+    }
+    .bottom-regi , .bottom-ingre{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .textbox{
+        font-size: 10vw;
 
-p{
-    margin-top: 0px;
-    margin: 1.80em;
+    }
 }
+
