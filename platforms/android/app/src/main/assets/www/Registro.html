@@ -24,31 +24,33 @@
              </nav>
         </header>
         <h1>Registro</h1>
+<form action="conexion/dbconexion.php">
     <div class="login">
         <div class="card-login">
             <div class="textbox">
                 <i class="fa fa-users"></i>
-                <input type="text" id="user" placeholder="Nombre" required> 
+                <input type="text" name="nombre" placeholder="Nombre" required> 
             </div>
             <div class="textbox">
                 <i class="fa fa-puzzle-piece"></i>
-                <input type="text" id="user" placeholder="Apellido" required> 
+                <input type="text" name="apellido" placeholder="Apellido" required> 
             </div>
             <div class="textbox">
                 <i class="fa fa-at"></i>
-                <input type="text" id="user" placeholder="Correo" required> 
+                <input type="text" name="correo" placeholder="Correo" required> 
             </div>
             <div class="textbox">
                 <i class="fa fa-user"></i>
-                <input type="text" id="user" placeholder="Usuario" required> 
+                <input type="text" name="user" placeholder="Usuario" required> 
             </div>
             <div class="textbox">
                 <i class="fa fa-unlock-alt"></i>
-                <input type="text" id="pass" placeholder="Contraseña" required> 
+                <input type="text" name="pass" placeholder="Contraseña" required> 
             </div>
-                 <a class="bottom-regi" href="principal.html">Enviar</a>
+                 <a class="bottom-regi" href="login.html">Enviar</a>
           </div>  
     </div>
+</form>
     </body>
-    <footer class="footer-copyright text-center py-3">©ALFA Derechos Reservado 2020</footer>
+    <footer id="footeregistro" class="footer-copyright text-center py-3">©ALFA Derechos Reservado 2020</footer>
 </html>
