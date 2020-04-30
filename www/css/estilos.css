@@ -164,6 +164,8 @@ h4{
     font-weight: bold;
     font-size: 25px;
     margin:0.50em;
+    justify-items: center;
+    flex: auto;
 }
 
 footer{
@@ -185,7 +187,6 @@ h1{
     font-size: 50px;
     font-weight: bold;
     background-color: teal;
-    width: 98%;
     justify-items: center;
     flex: auto;
 }
@@ -201,7 +202,6 @@ input{
     width: 25rem; 
     background: white;
     margin: 15px;
-    margin-left: 30px;
   }
 
   .card2{
@@ -432,7 +432,7 @@ p{
     body{
         background-size: cover;
     }
-    h1 , .card ,.card-con{
+     .card ,.card-con{
         max-width: 96%;
     }
 }
@@ -445,13 +445,12 @@ p{
 }
 
 @media (max-width:377px){
-    h2, h1{
+    h4,h2, h1{
         font-size: 10vw;
  }
  .card ,.card-con{
      display: flexbox;
      font-size: 10vm;
-     margin-left: 2px;
  }
  .btn-primary , .btn-segundary{
      display: flex;
