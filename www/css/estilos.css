@@ -2,16 +2,17 @@
 body {
     font-family: sans-serif;
     background:url(../img/Catedral.jpg) no-repeat;
-    background-color: #333;
     width:100%;
     background-size: cover;
     background-position: center;
+    display: block;
+    margin: 0 auto;
 }
 
 header {
-     width: 98%;
-     background: rgb(19, 18, 18) ; 
-     opacity: 0.8;
+    padding: 0 auto;
+     width: 100%;
+     background: rgb(0, 0, 0, 0.6) ;
      z-index: 9999999;
 
 }
@@ -25,13 +26,13 @@ header label {
     width: 30px;
     height: 30px;
     padding: 20px;
-    border: 2px solid #fff;
 }
 
 .link{
+margin: 0 auto;
+padding: 0 auto;
 display: flex;
 z-index: 1;
-margin-left: -7%;
 flex-direction: column;
 }
 
@@ -71,91 +72,84 @@ div{
 }
 
 #card1{
-    background: rgba(30, 5, 143, 0.820);
-    color: white;
-    margin-left: 3%;
+    background: rgba(63, 188, 239, 0.75);
     height: 90px;  
-    padding: 5px 40px;
+    padding: 4% 50%;
     width: 240px;
+    color: white;
     text-decoration: none;
+    font-family: corbel;
     font-size: 45px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 12px;
-    text-shadow: 2px 4px #161816; 
-
+ 
 }
 
 #card2{
-    background: rgba(40, 177, 6, 0.820);
+    background: rgba(0, 159, 60, 0.75);
     color: white;
-    margin-left: 3%;
     height: 90px;  
-    padding: 5px 40px;
+    padding: 4% 50%;
     width: 240px;
     text-decoration: none;
+    font-family: corbel;
     font-size: 45px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 12px;  
-    text-shadow: 2px 4px #161816; 
 
 }
 
 #card3{
-    background: rgb(245, 44, 44, 0.820);
+    background: rgb(230, 59, 97, 0.75);
     color: white;
-    margin-left: 3%;
     height: 90px;  
-    padding: 5px 40px;
+    padding: 4% 50%;
     width: 240px;
     text-decoration: none;
+    font-family: corbel;
     font-size: 45px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 12px;  
-    text-shadow: 2px 4px #161816; 
-
 }
 
 #card4{
-    background: rgb(103, 12, 145, 0.820);
+    background: rgb(103, 8, 123, 0.75);
     color: white;
-    margin-left: 3%;
     height: 90px;  
-    padding: 5px 40px;
+    padding: 4% 50%;
     width: 240px;
     text-decoration: none;
+    font-family: corbel;
     font-size: 45px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 12px;  
-    text-shadow: 2px 4px #161816; 
 }
 
 #card5{
-    background: rgba(233, 255, 36, 0.82);
+    background: rgba(254, 246, 104, 0.75);
     color: white;
-    margin-left: 3%;
     height: 90px;  
-    padding: 5px 40px;
+    padding: 4% 50%;
     width: 240px;
     text-decoration: none;
+    font-family: corbel;
     font-size: 45px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 12px;   
-    text-shadow: 2px 4px #161816; 
 }
 
 h2{
@@ -384,7 +378,7 @@ p{
 @media (max-width:768px){
 
     header{
-        max-width: 96%;
+        max-width: 100%;
     }
     header label{
         display:block;
@@ -433,7 +427,7 @@ p{
     }
 
     #card1,#card2,#card3,#card4,#card5{
-        margin: 3%;
+        margin: 0%;
     }
     body{
         background-size: cover;
