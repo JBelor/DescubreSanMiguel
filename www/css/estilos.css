@@ -181,6 +181,10 @@ footer{
     font-weight: bold;
     text-shadow: 2px 4px #161816;
 }
+
+#footeregistro{
+    margin-top: -90px;
+}
 h1{
     text-align: center;
     color: rgb(252, 249, 249);
@@ -204,7 +208,15 @@ input{
     background: white;
     margin: 15px;
     margin-left: 30px;
+  }
 
+  .card2{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
+    transition: 0.3s;
+    width: 25rem; 
+    background: rgba(15, 15, 15, 0.719);
+    margin: 15px;
+    margin-left: 30px;
   }
   
   .container {
@@ -240,13 +252,14 @@ p{
     margin-bottom: 30px;
     user-select: none;
     word-wrap: break-word;
+    text-align: center;
 }
 .card-con{
     box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
-    width: 25rem; 
+    width: 50rem; 
     background: rgba(19, 18, 18, 0.705) ;
     margin: 15px;
-    margin-left: 30px;
+    
     
 }
 .inform{
@@ -257,6 +270,8 @@ p{
 }
 .text-info{
     color: #fff;
+    font-size: larger;
+    font-family: cursive;
 }
 
 .referencias{
@@ -478,6 +493,9 @@ p{
     .textbox{
         font-size: 10vw;
 
+    }
+    #footeregistro{
+        margin-top: -25px;
     }
 }
 
