@@ -156,6 +156,10 @@ h2{
     color: white;
     position: absolute;
     margin-left: 30%;
+<<<<<<< HEAD
+    font-family: corbel;
+=======
+>>>>>>> cf44fbaa54a2722b3f16a8e8c62b6fec2f206fab
     font-size: 40px;
     margin-top: 15px;
     flex: auto;
@@ -185,8 +189,15 @@ footer{
     margin-bottom: 18%;
 }
 h1{
+<<<<<<< HEAD
+    margin: 0 auto;
     text-align: center;
     color: rgb(252, 249, 249);
+    font-family: corbel;
+=======
+    text-align: center;
+    color: rgb(252, 249, 249);
+>>>>>>> cf44fbaa54a2722b3f16a8e8c62b6fec2f206fab
     font-size: 50px;
     font-weight: bold;
     background-color: teal;
@@ -202,9 +213,14 @@ input{
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
     transition: 0.3s;
+<<<<<<< HEAD
+    background: white;
+    margin: 15px 0px;
+=======
     width: 25rem; 
     background: white;
     margin: 15px;
+>>>>>>> cf44fbaa54a2722b3f16a8e8c62b6fec2f206fab
   }
 
   .card2{
@@ -442,7 +458,11 @@ p{
         background-size: cover;
     }
      .card ,.card-con{
+<<<<<<< HEAD
+        max-width: 100%;
+=======
         max-width: 96%;
+>>>>>>> cf44fbaa54a2722b3f16a8e8c62b6fec2f206fab
     }
 }
 
