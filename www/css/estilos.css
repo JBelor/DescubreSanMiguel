@@ -466,12 +466,6 @@ p{
     }
 }
 
-@media (max-width:500px){
-    #card1 ,#card2 ,#card3 ,#card4 ,#card5 {
-        
-    }
-    
-}
 
 @media (max-width:900px){
     #card1 ,#card2 ,#card3 ,#card4 ,#card5 {
@@ -518,14 +512,14 @@ p{
     .login{
         display: contents;
         font-size: 10vw;
+        
     }
     .card-login{
         display: table-cell;
         font-size: 10vw;
+        margin-bottom: 10px;
     }
-    #login{
-        margin-bottom: 200%;
-    }
+    
     .bottom-regi, .bottom-ingre, .bottom-salir{
         display: flex;
         flex-direction: column;

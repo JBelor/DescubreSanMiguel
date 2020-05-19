@@ -9,6 +9,7 @@ body {
     margin: 0 auto;
 }
 
+
 header {
     padding: 0 auto;
      width: 100%;
@@ -156,6 +157,7 @@ h2{
     color: white;
     position: absolute;
     margin-left: 30%;
+    font-family: corbel;
     font-size: 40px;
     margin-top: 15px;
     flex: auto;
@@ -185,8 +187,10 @@ footer{
     margin-bottom: 18%;
 }
 h1{
+    margin: 0 auto;
     text-align: center;
     color: rgb(252, 249, 249);
+    font-family: corbel;
     font-size: 50px;
     font-weight: bold;
     background-color: teal;
@@ -197,14 +201,14 @@ h1{
 
 input{
     margin-left: 50px;
+    border: 1px dashed red;
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
     transition: 0.3s;
-    width: 25rem; 
     background: white;
-    margin: 15px;
+    margin: 15px 0px;
   }
 
   .card2{
@@ -219,6 +223,7 @@ input{
   .container {
     padding: 0px 12px;
     margin: 0px 12px;
+    text-align:center;
   }
 
   .btn-primary{
@@ -321,6 +326,12 @@ p{
     padding: 5px;
 }
 
+#bottons{
+    justify-items: center;
+    margin:0px auto;
+    padding: 0px;
+}
+
 .textbox{
     margin: 5% 0;
     width: 100%;
@@ -360,8 +371,7 @@ p{
     color: #ffffff;
     background-color: #1883ba;
     border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 5px;
+    border: 2px solid #000000;
 }
 .bottom-ingre{
     text-decoration: none;
@@ -371,15 +381,18 @@ p{
     color: #ffffff;
     background-color: #04811f;
     border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 50px;
-    padding-left: 26px;
-
+    border: 2px solid #000000;
 }
 
-#map{
-    height: 470px;
-    width: 100%;
+.bottom-salir{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #FE2020;
+    border-radius: 6px;
+    border: 2px solid #000000;
 }
 
 
@@ -398,11 +411,11 @@ p{
         background:  rgb(19, 18, 18);
         width: 70%;
         margin-left: -90%;
-        transition: all 0.5s;  
+        transition: all 0s;  
         z-index: 100;
-        font-weight: bold;
+        font-weight: bold;  
     }
-
+    
     .menu ul{
         flex-direction: column;
     }
@@ -442,7 +455,7 @@ p{
         background-size: cover;
     }
      .card ,.card-con{
-        max-width: 96%;
+        max-width: 100%;
     }
 }
 
@@ -453,9 +466,10 @@ p{
     }
 }
 
-@media (max-width:500px){
+
+@media (max-width:900px){
     #card1 ,#card2 ,#card3 ,#card4 ,#card5 {
-        width: 180px;
+        margin: 0%;
     }
     
 }
@@ -467,7 +481,7 @@ p{
     
 }
 
-@media (max-width:377px){
+@media (max-width:357px){
     h4,h2, h1{
         font-size: 10vw;
  }
@@ -498,21 +512,21 @@ p{
     .login{
         display: contents;
         font-size: 10vw;
+        
     }
     .card-login{
         display: table-cell;
         font-size: 10vw;
+        margin-bottom: 10px;
     }
-    #login{
-        margin-bottom: 200%;
-    }
-    .bottom-ingre{
-        margin-right: 30px;
-    }
-    .bottom-regi , .bottom-ingre{
+    
+    .bottom-regi, .bottom-ingre, .bottom-salir{
         display: flex;
         flex-direction: column;
         text-align: center;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
     .textbox{
         font-size: 10vw;
@@ -523,9 +537,12 @@ p{
     }
 }
 @media (max-width:295px){
-    .bottom-ingre , .bottom-regi{
+    .bottom-ingre, .bottom-regi, .bottom-salir{
         margin-right: 100px;
         margin-left: 0px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
     .card-login{
         margin-right: 100px;
