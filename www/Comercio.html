@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/iniciarFirebase.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/nuevolugar.js"></script>
+    <!--script>window.onload = mostrarComercio();</script-->
 </head>
 <body>
     <header>
@@ -24,148 +33,10 @@
         </nav>
     </header>
     <div class="link">
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%;">
-        <div class="container">
-          <h4>Metro Centro</h4>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>El Encuentro</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div> 
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div> 
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div> 
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div> 
-        </div>
+      <div class="comercio-item" id="comercio_item">
+        
+        <script>mostrarComercio();</script>
+          
       </div>
     </div>
 </body> 
