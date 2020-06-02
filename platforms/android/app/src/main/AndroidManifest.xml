@@ -12,4 +12,8 @@
     </application>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<<<<<<< HEAD
+=======
+    <uses-feature android:name="android.hardware.location.gps" />
+>>>>>>> 0f7e8533d982e2976acf79b955637ccc33869723
 </manifest>

@@ -14,9 +14,14 @@
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-plugin-geolocation": "^4.0.2",
     "firebase": "^7.14.2",
     "firebase-admin": "^8.12.0",
+<<<<<<< HEAD
     "org.apache.cordova.geolocation": "^0.3.6"
+=======
+    "jquery": "^3.5.1"
+>>>>>>> 0f7e8533d982e2976acf79b955637ccc33869723
   },
   "devDependencies": {
     "cordova-plugin-whitelist": "^1.3.4"
@@ -24,7 +29,11 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
+<<<<<<< HEAD
       "org.apache.cordova.geolocation": {}
+=======
+      "cordova-plugin-geolocation": {}
+>>>>>>> 0f7e8533d982e2976acf79b955637ccc33869723
     },
     "platforms": [
       "android"

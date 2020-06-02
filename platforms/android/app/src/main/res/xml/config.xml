@@ -22,6 +22,10 @@
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
     <feature name="Geolocation">
+<<<<<<< HEAD
         <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+=======
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+>>>>>>> 0f7e8533d982e2976acf79b955637ccc33869723
     </feature>
 </widget>

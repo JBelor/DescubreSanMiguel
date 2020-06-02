@@ -7,10 +7,17 @@
     "is_top_level": true,
     "variables": {}
   },
+<<<<<<< HEAD
   "org.apache.cordova.geolocation": {
     "source": {
       "type": "registry",
       "id": "org.apache.cordova.geolocation"
+=======
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@4.0.2"
+>>>>>>> 0f7e8533d982e2976acf79b955637ccc33869723
     },
     "is_top_level": true,
     "variables": {}

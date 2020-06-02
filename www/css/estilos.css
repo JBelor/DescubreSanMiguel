@@ -3,7 +3,6 @@ body {
     font-family: sans-serif;
     background:url(../img/Catedral.jpg) ;
     width:100%;
-    background-size: cover;
     background-position: center;
     display: block;
     margin: 0 auto;
@@ -22,6 +21,13 @@ header {
      background: rgb(0, 0, 0, 0.6) ;
      z-index: 9999999;
 
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
 }
 
 #btn-menu {
@@ -57,7 +63,7 @@ header label:hover{
 }
 
 .menu li {
-    border-right: 3px solid #fff;
+    /* border-right: 3px solid #fff; */
 }
 
 .menu li:hover {
@@ -74,7 +80,7 @@ header label:hover{
 
 div{
     align-items: center;
-    margin-top: 10px;
+    /* margin-bottom: 10px; */
     
 }
 
@@ -159,6 +165,14 @@ div{
     margin-top: 12px;   
 }
 
+.text-input {
+    color: white;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 h2{
     color: white;
     position: absolute;
@@ -169,9 +183,10 @@ h2{
     flex: auto;
 }
 h4{
+    padding: 20px 0px;
     font-weight: bold;
     font-size: 25px;
-    margin:0.50em;
+    margin: 0 auto;
     justify-items: center;
     flex: auto;
 }
@@ -211,10 +226,8 @@ input{
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
     transition: 0.3s;
-    background: white;
-    margin: 15px 0px;
+    margin-top: 15px;
   }
 
   .card2{
@@ -227,9 +240,20 @@ input{
   }
   
   .container {
+    background: rgba(15, 15, 15, 0.6);
+    color: white;
+    display: block;
     padding: 0px 12px;
-    margin: 0px 12px;
     text-align:center;
+    margin: 0 auto;
+  }
+
+   .container-buttons {
+    display: block;
+    padding: 0px 12px;
+    text-align:center;
+    padding-bottom: 25px;
+    padding-top: 5px;
   }
 
   .btn-primary{
@@ -240,8 +264,8 @@ input{
     color: #ffffff;
     background-color: #1883ba;
     border-radius: 6px;
-    border: 2px solid #0016b0;
-    margin-left: 20px;
+    border: 2px solid #000;
+    /*margin-left: 20px;*/
   }
   .btn-segundary{
     text-decoration: none;
@@ -251,16 +275,25 @@ input{
     color: #ffffff;
     background-color: #04811f;
     border-radius: 6px;
-    border: 2px solid #0016b0;
+    border: 2px solid #000;
     margin-left: 20px;
   }
 
+hr{
+    color: white;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
 p{
-    margin-top: 0px;
-    margin-bottom: 30px;
+    color:white;
+    margin: 0 auto;
+    /*margin-bottom: 30px;*/
+    padding: 15px 40px 40px;
     user-select: none;
     word-wrap: break-word;
     text-align: center;
+    background: rgba(15, 15, 15, 0.6);
 }
 .card-con{
     box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
@@ -334,7 +367,7 @@ p{
 
 #bottons{
     justify-items: center;
-    margin:0px auto;
+    margin:0px 0px;
     padding: 0px;
 }
 
@@ -415,7 +448,7 @@ p{
     .menu{
         position: fixed;
         background:  rgb(19, 18, 18);
-        width: 70%;
+        width: 50%;
         margin-left: -90%;
         transition: all 0s;  
         z-index: 100;
@@ -427,7 +460,7 @@ p{
     }
 
     .menu li {
-        border-top: 3px solid #fff;  
+        border-top: 1.5px solid #fff;  
     }
 
     #btn-menu{
@@ -461,6 +494,7 @@ p{
         background-size: cover;
     }
      .card ,.card-con{
+        display: block;
         max-width: 100%;
     }
 }
@@ -482,7 +516,7 @@ p{
 
 @media (max-width:480px){
     #login{
-        margin-top: 55%;
+        /* margin-top: 55%; */
     }
     
 }

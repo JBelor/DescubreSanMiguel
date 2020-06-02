@@ -1,14 +1,4 @@
-var firebaseConfig = {
-            apiKey: "AIzaSyBYrSbia708S0SsWQVhPF2SZKoisHCnI3o",
-            authDomain: "descubresanmiguel.firebaseapp.com",
-            databaseURL: "https://descubresanmiguel.firebaseio.com",
-            projectId: "descubresanmiguel",
-            storageBucket: "descubresanmiguel.appspot.com",
-            messagingSenderId: "394849091551",
-            appId: "1:394849091551:web:8b314179b6b19db7dece6a"
-          };
-          
-firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth();
 //var database = firebase.database();
 
@@ -22,7 +12,6 @@ function registrarUsuario(){
 
 	.then(function(){
 		alert(correo + " se ha registrado con exito");
-		alogin();
 		verificar();
 	})
 	.catch(function(error) {
@@ -55,26 +44,28 @@ function ingresar(){
 
 //verifica si hay un usuario activo
 function observador(){
-
-	firebase.auth().onAuthStateChanged(function(user) {
-	  if (user) {
-	  	console.log('existe usuario activo');
-	  	console.log(user.emailVerified);
-	    // el usuario ha iniciado sesion
-	    var displayName = user.displayName;
-	    var email = user.email;
-	    var emailVerified = user.emailVerified;
-	    var photoURL = user.photoURL;
-	    var isAnonymous = user.isAnonymous;
-	    var uid = user.uid;
-	    var providerData = user.providerData;
-	    // ...
-	  } else {
-	    // el usuario no ha iniciado sesion
-	    console.log('no existe usuario activo');
-	    // ...
-	  }
-	});
+            
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log('existe usuario activo');
+        console.log(user.emailVerified);
+        console.log(user.email);
+        // el usuario ha iniciado sesion
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        var usu_correo = user.email;
+        // ...
+      } else {
+        // el usuario no ha iniciado sesion
+        console.log('no existe usuario activo');
+        // ...
+      }
+    });
 }
 observador();
 
@@ -85,6 +76,7 @@ function verificar(){
 	user.sendEmailVerification().then(function() {
 	  // Email sent.
 	  alert("Te hemos enviado un correo de verificación");
+	  apaginaprincipal();
 	}).catch(function(error) {
 	  // An error happened.
 	  alert("No se pudo enviar el correo de verificación");
