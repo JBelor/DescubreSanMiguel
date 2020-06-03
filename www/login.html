@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Descubre San Miguel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="js/iniciarFirebase.js"></script>
+        <script src="js/registro.js"></script>
+        <header>
+            <input type="checkbox" id="btn-menu">
+             <h2>Login</h2>
+                <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
+                <nav class="menu">
+                     <ul>
+                        <li><a href="principal.html">Inicio</a></li>
+                        <li><a href="login.html">Sesion</a></li>
+                        <li><a href="sabiasque.html">¿Sabias Que?</a></li>
+                        <!-- 
+                         <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        -->
+                     </ul>
+             </nav>
+        </header>
+        <div class="login" >    
+            <div class="card-login" id="login">
+                <div class="textbox">
+                    <i class="fa fa-user"></i>
+                        <input type="text" id="correo2" placeholder="Correo" required> 
+                </div>
+                <div class="textbox">
+                    <i class="fa fa-unlock-alt"></i>
+                        <input type="password" id="contra2" placeholder="Contraseña" required> 
+                </div>
+                <div>
+                 <button class="bottom-regi" onclick="location.href='Registro.html'">Registrate</button>
+                 <!--a class="bottom-ingre" href="principal.html">Ingresar</a-->
+                 <button class="bottom-ingre" onclick="ingresar()">Ingresar</button>
+                 <button class="bottom-salir" id="btn-cerrar" onclick="cerrar()">Cerrar Sesión</button>
+                 </div>
+            </div>  
+        </div>
+    </body>
+    <footer class="footer-copyright text-center py-3" id="footerlogin">©ALFA Derechos Reservado 2020</footer>
+</html>

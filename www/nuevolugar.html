@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Descubre San Miguel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="js/iniciarFirebase.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/nuevolugar.js"></script>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <h2>San Miguel</h2>
+        <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="principal.html">Inicio</a></li>
+                <li><a href="login.html">Sesion</a></li>
+                <li><a href="sabiasque.html">¿Sabias Que?</a></li>
+               <!-- 
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+                -->
+            </ul>
+        </nav>
+    </header>
+    <div class="login" >    
+        <div class="card-login" id="login">
+            <div class="textbox">
+                <label class="text-input">Nombre del lugar</label>
+                <i class="fa fa-user"></i>
+                <input type="text" id="nombreLug" name="nombreLug" placeholder="Nombre" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Descripción</label>
+                <i class="fa fa-user"></i>
+                <input type="text" id="descripLug" placeholder="Descripción" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Número de teléfono</label>
+                <i class="fa fa-user"></i>
+                <input type="tel" id="telLug" placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Número de Whatsapp</label>
+                <i class="fa fa-user"></i>
+                <input type="tel" id="whatsLug" placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Facebook</label>
+                <i class="fa fa-user"></i>
+                <input type="url" id="fbUrlLug" placeholder="Agrega URL de Facebook" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Instagram</label>
+                <i class="fa fa-user"></i>
+                <input type="url" id="instaUrlLug" placeholder="Agrega URL de Instagram" required> 
+            </div>
+            <div class="textbox">
+                <label class="text-input">Ubicación en Google Maps</label>
+                <i class="fa fa-user"></i>
+                <input type="textbox" id="ubicLug" placeholder="Seleccionar ubicación" required> 
+            </div>
+            <div class="textbox">
+                <!--i class="fa fa-user"></i-->
+                <input type="file" accept="image/x-png,image/jpeg" id="imagen" required> 
+            </div>
+            <div>
+                <button class="bottom-ingre" onclick="nuevoLugar()">Registrar Lugar</button>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

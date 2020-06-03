@@ -1,0 +1,584 @@
+@import"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+body {
+    font-family: sans-serif;
+    background:url(../img/Catedral.jpg) ;
+    width:100%;
+    background-position: center;
+    display: block;
+    margin: 0 auto;
+}
+
+
+header {
+    padding: 0 auto;
+     width: 100%;
+     background: rgb(0, 0, 0, 0.6) ;
+     z-index: 9999999;
+
+}
+
+.map{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+}
+
+#btn-menu {
+    display: none;
+}
+
+header label {
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 20px;
+}
+
+.link{
+margin: 0 auto;
+padding: 0 auto;
+display: flex;
+z-index: 1;
+flex-direction: column;
+}
+
+
+header label:hover{
+    background: rgb(165, 165, 165);
+}
+
+.menu ul{
+    margin: 5px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    
+}
+
+.menu li {
+    /* border-right: 3px solid #fff; */
+}
+
+.menu li:hover {
+     background:  rgb(165, 165, 165);
+}
+
+.menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+div{
+    align-items: center;
+    /* margin-bottom: 10px; */
+    
+}
+
+#card1{
+    background: rgba(63, 188, 239, 0.75);
+    height: 100px;  
+    padding: 4% 28%;
+    width: 240px;
+    color: white;
+    text-decoration: none;
+    font-family: corbel;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+#card2{
+    background: rgba(0, 159, 60, 0.75);
+    color: white;
+    height: 100px;  
+    padding: 4% 28%;
+    width: 240px;
+    text-decoration: none;
+    font-family: corbel;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;  
+
+}
+
+#card3{
+    background: rgb(230, 59, 97, 0.75);
+    color: white;
+    height: 100px;  
+    padding: 4% 28%;
+    width: 240px;
+    text-decoration: none;
+    font-family: corbel;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;  
+}
+
+#card4{
+    background: rgb(103, 8, 123, 0.75);
+    color: white;
+    height: 100px;  
+    padding: 4% 28%;
+    width: 240px;
+    text-decoration: none;
+    font-family: corbel;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;  
+}
+
+#card5{
+    background: rgba(254, 246, 104, 0.75);
+    color: white;
+    height: 100px;  
+    padding: 4% 28%;
+    width: 240px;
+    text-decoration: none;
+    font-family: corbel;
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;   
+}
+
+.text-input {
+    color: white;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h2{
+    color: white;
+    position: absolute;
+    margin-left: 30%;
+    font-family: corbel;
+    font-size: 40px;
+    margin-top: 15px;
+    flex: auto;
+}
+h4{
+    padding: 20px 0px;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0 auto;
+    justify-items: center;
+    flex: auto;
+}
+
+footer{
+    color:white;
+    font-size: 20px;
+    padding: 6%;
+    padding-left: 2%;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 4px #161816;
+}
+
+#footeregistro{
+    margin-top: -90px;
+}
+#footerlogin{
+    margin-bottom: 18%;
+}
+h1{
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(252, 249, 249);
+    font-family: corbel;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: teal;
+    justify-items: center;
+    flex: auto;
+}
+
+
+input{
+    margin-left: 50px;
+    border: 1px dashed red;
+}
+
+.card {
+    transition: 0.3s;
+    margin-top: 15px;
+  }
+
+  .card2{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.87);
+    transition: 0.3s;
+    width: 25rem; 
+    background: rgba(15, 15, 15, 0.719);
+    margin: 15px;
+    margin-left: 30px;
+  }
+  
+  .container {
+    background: rgba(15, 15, 15, 0.6);
+    color: white;
+    display: block;
+    padding: 0px 12px;
+    text-align:center;
+    margin: 0 auto;
+  }
+
+   .container-buttons {
+    display: block;
+    padding: 0px 12px;
+    text-align:center;
+    padding-bottom: 25px;
+    padding-top: 5px;
+  }
+
+  .btn-primary{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #000;
+    /*margin-left: 20px;*/
+  }
+  .btn-segundary{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #04811f;
+    border-radius: 6px;
+    border: 2px solid #000;
+    margin-left: 20px;
+  }
+
+hr{
+    color: white;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+p{
+    color:white;
+    margin: 0 auto;
+    /*margin-bottom: 30px;*/
+    padding: 15px 40px 40px;
+    user-select: none;
+    word-wrap: break-word;
+    text-align: center;
+    background: rgba(15, 15, 15, 0.6);
+}
+.card-con{
+    box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
+    width: 50rem; 
+    background: rgba(19, 18, 18, 0.705) ;
+    margin: 15px;
+    
+    
+}
+.inform{
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    text-shadow: 2px 4px rgb(3, 107, 46);
+}
+.text-info{
+    color: #fff;
+    font-size: larger;
+    font-family: cursive;
+}
+
+.referencias{
+    list-style: none;
+    width: 20rem;
+    justify-content: center;
+    
+}
+.referencias li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    justify-content: center;
+}
+.referencias li:hover {
+    background: rgb(165, 165, 165);
+}
+.referencias li  {
+    border: 4px solid #fff;
+    margin: 1px;
+    text-align: center;
+}
+.login{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    margin-right: 45px;  
+}
+.card-login{
+    box-shadow: 2px 8px 8px 2px rgb(14, 12, 12);
+    width: 25rem; 
+    background: rgba(19, 18, 18, 0.705) ;
+    margin: 100px;
+    text-align: center;
+    margin-left: 128px;
+    margin-top: -1px;
+}
+
+.botton-login{
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    justify-content: center;
+    border: 3px solid #fff;
+    margin-left: 30%;
+    background: #08f13a60;
+    padding: 5px;
+}
+
+#bottons{
+    justify-items: center;
+    margin:0px 0px;
+    padding: 0px;
+}
+
+.textbox{
+    margin: 5% 0;
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    border-bottom: 2px solid #4caf50;
+}
+
+.textbox i{
+    color: #fff;
+    float: left;
+    text-align: center;
+    font-size: 200%;
+    width: 20%;
+}
+
+.textbox input{
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    width: 290px;
+    float: left;
+    margin: 0px;
+    padding: 10px;
+    background: none;
+    font-weight: bold;
+
+}
+
+.bottom-regi{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+.bottom-ingre{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #04811f;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+
+.bottom-salir{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #FE2020;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+
+
+
+@media (max-width:768px){
+
+    header{
+        max-width: 100%;
+    }
+    header label{
+        display:block;
+    }
+    
+    .menu{
+        position: fixed;
+        background:  rgb(19, 18, 18);
+        width: 50%;
+        margin-left: -90%;
+        transition: all 0s;  
+        z-index: 100;
+        font-weight: bold;  
+    }
+    
+    .menu ul{
+        flex-direction: column;
+    }
+
+    .menu li {
+        border-top: 1.5px solid #fff;  
+    }
+
+    #btn-menu{
+        margin: 10px;
+    }
+    #btn-menu:checked ~ .menu {
+        margin: 0px; 
+        z-index: 100;
+        position: absolute;
+    }
+    #btn-menu:checked ~ .link{
+        z-index: -9999999;
+    }
+
+    .link{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        padding-left: -15%; 
+    }
+    
+    footer{
+        padding: 10%;
+        text-align: center;
+    }
+
+    #card1,#card2,#card3,#card4,#card5{
+        margin: 0%;
+    }
+    body{
+        background-size: cover;
+    }
+     .card ,.card-con{
+        display: block;
+        max-width: 100%;
+    }
+}
+
+@media (min-width:768px){
+    h2{
+        margin-left: 50%;
+        margin-top: 0px;
+    }
+}
+
+
+@media (max-width:900px){
+    #card1 ,#card2 ,#card3 ,#card4 ,#card5 {
+        margin: 0%;
+    }
+    
+}
+
+@media (max-width:480px){
+    #login{
+        /* margin-top: 55%; */
+    }
+    
+}
+
+@media (max-width:357px){
+    h4,h2, h1{
+        font-size: 10vw;
+ }
+ #login{
+    margin-top: 57%;
+}
+ .card ,.card-con{
+     display: flexbox;
+     font-size: 10vm;
+ }
+ .btn-primary , .btn-segundary{
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     margin-right: 20px;
+ }
+
+ .btn-segundary{
+     margin-left: 20px;
+ }
+ 
+ 
+}
+
+  
+
+@media (max-width:340px){
+    .login{
+        display: contents;
+        font-size: 10vw;
+        
+    }
+    .card-login{
+        display: table-cell;
+        font-size: 10vw;
+        margin-bottom: 10px;
+    }
+    
+    .bottom-regi, .bottom-ingre, .bottom-salir{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .textbox{
+        font-size: 10vw;
+
+    }
+    #footeregistro{
+        margin-top: -25px;
+    }
+}
+@media (max-width:295px){
+    .bottom-ingre, .bottom-regi, .bottom-salir{
+        margin-right: 100px;
+        margin-left: 0px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-login{
+        margin-right: 100px;
+    }
+}
