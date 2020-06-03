@@ -63,7 +63,7 @@ header label:hover{
 }
 
 .menu li {
-    /* border-right: 3px solid #fff; */
+    border-right: 3px solid #fff; */
 }
 
 .menu li:hover {
@@ -545,8 +545,6 @@ p{
  
  
 }
-
-  
 
 @media (max-width:340px){
     .login{
