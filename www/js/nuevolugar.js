@@ -165,7 +165,7 @@ function mostrarComercio(){
  		'</p>'
  		);
  		$("#comercio_item").append(
- 		"<div class='container-buttons' id='bottons'><a href='#' class='btn-primary'>Información</a><a href='#' class='btn-segundary'>Iniciar ruta</a>'</div></div></div><br>"
+ 		"<div class='container-buttons' id='bottons'><a href='#' class='btn-primary'>Información</a><a href='map.html' class='btn-segundary'>Iniciar ruta</a>'</div></div></div><br>"
  		);
  	});
  }, function (errorObject) {
