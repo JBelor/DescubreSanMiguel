@@ -141,15 +141,21 @@ var key;
 
  }
 
-function mostrarComercio(){
+function mostrarComercio(key){
  	firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
  		snapshot.forEach(function(childSnapshot) { 
  		//key es el id de cada registro
- 		var key = childSnapshot.key;
+ 		this.key = childSnapshot.key;
  		var childData = childSnapshot.val();
  		var ImgComer = childSnapshot.val().img_url;
  		var nombreComer = childSnapshot.val().Nombre;
  		var descripComer = childSnapshot.val().Descripcion;
+
+ 		for(var i; i<=childSnapshot; i++){
+ 			
+		}
+ 		//console.log(key);
+ 		
  		$("#comercio_item").append(
  		'<div class="card"><img width="100%" src="'
  		+ ImgComer +
@@ -165,11 +171,17 @@ function mostrarComercio(){
  		'</p>'
  		);
  		$("#comercio_item").append(
- 		"<div class='container-buttons' id='bottons'><a href='#' class='btn-primary'>Información</a><a href='map.html' class='btn-segundary'>Iniciar ruta</a>'</div></div></div><br>"
+ 		"<div class='container-buttons' id='bottons'><button onclick='mostrarInfo(key)' class='btn-primary'>Información</button><a href='map.html' class='btn-segundary'>Iniciar ruta</a>'</div></div></div><br>"
  		);
  	});
- }, function (errorObject) {
-	console.log("The read failed: " + errorObject.code);
-});
- return key;
+ 	}, function (errorObject) {
+		console.log("The read failed: " + errorObject.code);
+	});
+
+ 	return key;
+	//console.log(key);
+}
+
+function mostrarInfo(key) {
+	console.log("El ID es: " + key);
 }

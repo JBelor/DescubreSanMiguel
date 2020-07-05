@@ -1,6 +1,7 @@
 
 const auth = firebase.auth();
-//var database = firebase.database();
+var database = firebase.database();
+var estadoUser = false;
 
 //registra un nuevo usuario
 function registrarUsuario(){
@@ -11,6 +12,15 @@ function registrarUsuario(){
 	firebase.auth().createUserWithEmailAndPassword(correo, contra)
 
 	.then(function(){
+
+		var correoUser = correo;
+
+	 	firebase.database().ref("Usuarios").push({
+	        Nombre: document.getElementById('nombre').value,
+	        Apellido: document.getElementById('apellido').value,
+	        Correo: correoUser
+	  	});
+
 		alert(correo + " se ha registrado con exito");
 		verificar();
 	})
@@ -30,6 +40,7 @@ function ingresar(){
 	const promise = auth.signInWithEmailAndPassword(correo.value, contra.value)
 	
 	.then(function(){
+		estadoUser = true;
 		alert("Ingreso sesión con exito " + correo.value);
 		apaginaprincipal();
 	})
@@ -39,8 +50,9 @@ function ingresar(){
 	})
 
 	//promise.catch(e => alert(e.message))
-	
-}
+
+}	
+
 
 //verifica si hay un usuario activo
 function observador(){
@@ -50,6 +62,12 @@ function observador(){
         console.log('existe usuario activo');
         console.log(user.emailVerified);
         console.log(user.email);
+        //muestra el correo del usuario en la etiqueta <li>
+        document.getElementById("userActivo").innerHTML = user.email;
+        //hace visible el <li> cuando hay un usuario activo
+        userActivo.style.display = "block";
+        estadoUser = true;
+       
         // el usuario ha iniciado sesion
         var displayName = user.displayName;
         var email = user.email;
@@ -63,6 +81,7 @@ function observador(){
       } else {
         // el usuario no ha iniciado sesion
         console.log('no existe usuario activo');
+        estadoUser = false;
         // ...
       }
     });
@@ -83,10 +102,23 @@ function verificar(){
 	});
 }
 
+
 //cierra sesion del usuario
 function cerrar(){
 	firebase.auth().signOut();
+	estadoUser = false;
 	apaginaprincipal();
+}
+
+function verifBotoncerrar(){
+	
+	if (estadoUser == true) {
+	    //hace visible el boton cerrar sesion
+		btn_cerrar.style.display = "inline";
+	}else{
+		btn_cerrar.style.display = "none";
+	}
+
 }
 
 function apaginaprincipal(){

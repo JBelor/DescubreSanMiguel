@@ -6,28 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
-
 </head>
 <body>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
     <script src="js/iniciarFirebase.js"></script>
     <script src="js/registro.js"></script>
     <header>
         <input type="checkbox" id="btn-menu">
         <h2>San Miguel</h2>
         <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
-        
         <nav class="menu">
             <ul>
                 <li><a href="principal.html">Inicio</a></li>
                 <li><a href="login.html">Sesion</a></li>
                 <li><a href="sabiasque.html">¿Sabias Que?</a></li>
                 <li><a href="nuevolugar.html">Nuevo Comercio</a></li>
-               <!-- 
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                -->
+                <li id="userActivo"></li>
             </ul>
         </nav>
     </header>
