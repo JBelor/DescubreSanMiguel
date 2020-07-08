@@ -13,12 +13,12 @@ function mapa(){
          }
          var gmapa = new google.maps.Map(divmap , objConfig) ;
 
-         var marker = new google.maps.Marker({
+        /* var marker = new google.maps.Marker({
             position: glanLon,
             map: gmapa,
             title: "Esta es tu posicion"
          
-        });
+        });*/
  
          console.log(lat);
          console.log(lon);
