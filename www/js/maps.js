@@ -1,4 +1,7 @@
 function mapa(){
+    var gps = sessionStorage.getItem("ubicacion");
+    console.log(gps);
+
     var divmap = document.getElementById("map");
     window.navigator.geolocation.getCurrentPosition(fn_ok);
 
@@ -12,13 +15,6 @@ function mapa(){
             center: glanLon
          }
          var gmapa = new google.maps.Map(divmap , objConfig) ;
-
-        /* var marker = new google.maps.Marker({
-            position: glanLon,
-            map: gmapa,
-            title: "Esta es tu posicion"
-         
-        });*/
  
          console.log(lat);
          console.log(lon);
@@ -28,7 +24,7 @@ function mapa(){
     }
     var objconfigDS = {
         origin: glanLon,
-        destination:'Pizza Hut, Metrocentro San Miguel, San Miguel',
+        destination: gps,
         travelMode:google.maps.TravelMode.DRIVING
     }
     

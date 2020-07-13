@@ -6,7 +6,7 @@
 var ImgComer;
 var nombreComer;
 var descripComer;
-var key;
+var keys ;
 
  //var ref = firebase.database().ref('Categoria').child('Comercio');
   //var Ref = database.ref("Categorías").child("Comercio");
@@ -142,16 +142,16 @@ var key;
  }
 
 function mostrarComercio(){
- 	firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
+ 		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
  		snapshot.forEach(function(childSnapshot) { 
  		//key es el id de cada registro
- 		var key = childSnapshot.key;
- 		var childData = childSnapshot.val();
- 		var ImgComer = childSnapshot.val().img_url;
- 		var nombreComer = childSnapshot.val().Nombre;
- 		var descripComer = childSnapshot.val().Descripcion;
+		 this.key = childSnapshot.key;
+ 			var ImgComer = childSnapshot.val().img_url;
+ 			var nombreComer = childSnapshot.val().Nombre;
+		 	var descripComer = childSnapshot.val().Descripcion;
+		 	var gps = childSnapshot.val().Ubicacion;
  		$("#comercio_item").append(
- 		'<div class="card"><img width="100%" src="'
+ 		'<div class="card"><img width="100%" heigth="80%" src="'
  		+ ImgComer +
  		'"/>'
  		);
@@ -163,13 +163,60 @@ function mostrarComercio(){
  		'</h4><hr><p>'
  		+ descripComer +
  		'</p>'
- 		);
+		 );
  		$("#comercio_item").append(
- 		"<div class='container-buttons' id='bottons'><a href='#' class='btn-primary'>Información</a><a href='map.html' class='btn-segundary'>Iniciar ruta</a>'</div></div></div><br>"
- 		);
- 	});
- }, function (errorObject) {
-	console.log("The read failed: " + errorObject.code);
-});
- return key;
+	   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\')" class="btn-primary"><a href= "informacion.html">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\')" class="btn-segundary"><a  href= "map.html">Iniciar ruta</button></div></div></div><br>'		
+	   );
+	});
+ 	}, function (errorObject) {
+		console.log("The read failed: " + errorObject.code);
+	});
 }
+
+function mostrarInfo() {
+	var ob_key = sessionStorage.getItem("key");
+	console.log(ob_key);
+	firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
+		snapshot.forEach(function(childSnapshot) { 
+			this.key = childSnapshot.key;
+				var ImgComer = childSnapshot.val().img_url;
+				var nombreComer = childSnapshot.val().Nombre;
+				var descripComer = childSnapshot.val().Descripcion;
+				var cel  = childSnapshot.val().Telefono;
+		$("#comercio_item").append(
+		'<div class="card"><img width="100%" heigth="80%" src="'
+		+ ImgComer +
+		'"/>'
+		);	
+		$("#comercio_item").append(
+		'<div class="container" id="comercio_nombre"><h4>'
+		+ nombreComer
+		);
+		$("#comercio_item").append(
+		'</h4><hr><p class="text-info">'
+		+ descripComer+
+		'</p>'
+		);
+		$("#comercio_item").append(
+			'</h4><hr><p class="text-info"> Telefono : '
+			  + cel +
+			'</p>'
+			);
+		$("#comercio_item").append(
+		'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a href="map.html">Como Llegar</a></li></ul></br>'
+		);
+	});
+	}, function (errorObject) {
+	   console.log("The read failed: " + errorObject.code);
+   });
+
+	// return key;
+
+}
+
+// function mostrarInfo(){
+// 	var ob_key = sessionStorage.getItem("key");
+// 	console.log(ob_key);
+// }
+
+

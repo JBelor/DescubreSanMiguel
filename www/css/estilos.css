@@ -334,6 +334,13 @@ p{
     margin: 1px;
     text-align: center;
 }
+
+#bt_list{
+    background: none;
+    border: none;
+
+}
+
 .login{
     display: flex;
     z-index: 1;
@@ -434,6 +441,19 @@ p{
     display: none;
 }
 
+button{
+    background: rgb(0, 0, 0, 0.6) ;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    border-color: rgb(252, 40, 40);
+    border-radius: 15px;
+   
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
 
 
 @media (max-width:768px){

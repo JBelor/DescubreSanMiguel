@@ -9,6 +9,7 @@
     <body>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
         <script src="js/iniciarFirebase.js"></script>
         <script src="js/registro.js"></script>
         <header>
@@ -20,10 +21,8 @@
                         <li><a href="principal.html">Inicio</a></li>
                         <li><a href="login.html">Sesion</a></li>
                         <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                        <!-- 
-                         <li><a href=""></a></li>
-                        <li><a href=""></a></li>
-                        -->
+                        <li><a href="nuevolugar.html">Nuevo Comercio</a></li>
+                        <li ><button id="userActivo" onclick="cerrar()"></button></li>
                      </ul>
              </nav>
         </header>
@@ -41,7 +40,8 @@
                  <button class="bottom-regi" onclick="location.href='Registro.html'">Registrate</button>
                  <!--a class="bottom-ingre" href="principal.html">Ingresar</a-->
                  <button class="bottom-ingre" onclick="ingresar()">Ingresar</button>
-                 <button class="bottom-salir" id="btn-cerrar" onclick="cerrar()">Cerrar Sesión</button>
+                 <button class="bottom-salir" id="btn_cerrar" onclick="cerrar()">Cerrar Sesión</button>
+                 <script>verifBotoncerrar();</script>
                  </div>
             </div>  
         </div>

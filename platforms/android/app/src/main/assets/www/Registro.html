@@ -10,6 +10,7 @@
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
         <script src="js/iniciarFirebase.js"></script>
         <script src="js/registro.js"></script>
         <header>
@@ -21,23 +22,21 @@
                         <li><a href="principal.html">Inicio</a></li>
                         <li><a href="login.html">Sesion</a></li>
                         <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                        <!-- 
-                         <li><a href=""></a></li>
-                        <li><a href=""></a></li>
-                        -->
+                        <li><a href="nuevolugar.html">Nuevo Comercio</a></li>
+                        <li ><button id="userActivo" onclick="cerrar()"></button></li>
                      </ul>
              </nav>
         </header>
             <div class="login">
                 <div class="card-login">
-                    <!--div class="textbox">
+                    <div class="textbox">
                         <i class="fa fa-users"></i>
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" required> 
                     </div>
                     <div class="textbox">
                         <i class="fa fa-puzzle-piece"></i>
                         <input type="text" name="apellido" id="apellido" placeholder="Apellido" required> 
-                    </div-->
+                    </div>
                     <div class="textbox">
                         <i class="fa fa-at"></i>
                         <input type="text" name="correo" id="correo" placeholder="Correo" required> 

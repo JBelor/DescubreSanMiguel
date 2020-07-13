@@ -8,13 +8,11 @@ body {
     margin: 0 auto;
 }
 
-
 header {
     padding: 0 auto;
      width: 100%;
      background: rgb(0, 0, 0, 0.6) ;
      z-index: 9999999;
-
 }
 
 .map{
@@ -22,6 +20,13 @@ header {
     height: 100%;
     position: absolute;
     margin: 0 auto;
+}
+
+#userActivo{
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    display: none;
 }
 
 #btn-menu {
@@ -426,8 +431,22 @@ p{
     background-color: #FE2020;
     border-radius: 6px;
     border: 2px solid #000000;
+    display: none;
 }
 
+button{
+    background: rgb(0, 0, 0, 0.6) ;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    border-color: rgb(252, 40, 40);
+    border-radius: 15px;
+   
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
 
 
 @media (max-width:768px){
