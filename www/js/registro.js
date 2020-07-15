@@ -20,14 +20,26 @@ function registrarUsuario(){
 	        Apellido: document.getElementById('apellido').value,
 	        Correo: correoUser
 	  	});
+	 	bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>" + correo + " se ha registrado con exito</h4>",
+		    closeButton: false,
+		    callback: function(){ verificar(); }
+		})
 
-		alert(correo + " se ha registrado con exito");
-		verificar();
+		//alert(correo + " se ha registrado con exito");
+		//verificar();
+
 	})
 	.catch(function(error) {
 	  var errorCode = error.code;
 	  var errorMessage = error.message;
-	  alert("El correo o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)");
+	  //alert("El correo o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)");
+	  bootbox.alert({
+		message: "<h4 class='txt-bootbox'>El correo electronico o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)</h4>",
+		size: 'small',
+		closeButton: false
+	  });
 	});
 }
 
@@ -41,14 +53,23 @@ function ingresar(){
 	
 	.then(function(){
 		estadoUser = true;
-		alert("Ingreso sesión con exito " + correo.value);
-		apaginaprincipal();
+		bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>Ingreso sesión con exito " + correo.value + "</h4>",
+		    closeButton: false,
+		    callback: function(){ apaginaprincipal(); }
+		})
+		//alert("Ingreso sesión con exito " + correo.value);
 	})
 	.catch(function(error){
 		console.log("Error al iniciar sesion");
-		alert("El usuario o contraseña no son validos");
+		bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>El usuario o contraseña no son validos</h4>",
+		    closeButton: false
+		})
+		//alert("El usuario o contraseña no son validos");
 	})
-
 	//promise.catch(e => alert(e.message))
 
 }	
@@ -94,14 +115,48 @@ function verificar(){
 
 	user.sendEmailVerification().then(function() {
 	  // Email sent.
-	  alert("Te hemos enviado un correo de verificación");
-	  apaginaprincipal();
+	  	bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>Te hemos enviado un correo de verificación</h4>",
+		    closeButton: false,
+		    callback: function(){ apaginaprincipal(); }
+		})
+	  	//alert("Te hemos enviado un correo de verificación");
+	  	//apaginaprincipal();
 	}).catch(function(error) {
 	  // An error happened.
-	  alert("No se pudo enviar el correo de verificación");
+	  bootbox.alert({
+	    size: "small",
+	    message: "<h4 class='txt-bootbox'>No se pudo enviar el correo de verificación</h4>",
+	    closeButton: false
+	  })
+	  //alert("No se pudo enviar el correo de verificación");
 	});
 }
 
+function confirmCerrar(){
+	bootbox.confirm({
+    message: "<h4 class='txt-bootbox'>¿Seguro que quieres cerrar sesión?</h4>",
+    buttons: {
+        confirm: {
+            label: 'SI',
+            className: 'btn-danger'
+        },
+        cancel: {
+            label: 'NO',
+            className: 'btn-primary'
+        }
+    },
+    callback: function (result) {
+        if (result==true) {
+        	cerrar();
+        }else{
+        	bootbox.hideAll();
+        }
+    }
+	});
+
+}
 
 //cierra sesion del usuario
 function cerrar(){
