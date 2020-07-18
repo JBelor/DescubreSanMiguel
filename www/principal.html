@@ -17,20 +17,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
     <script src="js/iniciarFirebase.js"></script>
     <script src="js/registro.js"></script>
-    <header>
-        <input type="checkbox" id="btn-menu">
-        <h2>San Miguel</h2>
-        <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
-        <nav class="menu">
-            <ul>
-                <li><a href="principal.html">Inicio</a></li>
-                <li><a href="login.html">Sesion</a></li>
-                <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                <li><a href="nuevolugar.html">Nuevo Comercio</a></li>
-                <li ><button class="btn-cerrar" id="userActivo" onclick="confirmCerrar()"></button></li>
-            </ul>
-        </nav>
-    </header>
+    <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
+      <nav class="">
+          <a href="#">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+            <circle cx="8" cy="4.5" r="1"/>
+            </svg>
+          </a>
+      </nav>
+      <nav class="navbar navbar-dark bg-dark" id="nav-sm-logo" align="center">
+        <a class="navbar-brand" id="sm-logo" href="principal.html">San Miguel</a>
+      </nav>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="principal.html"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg> Inicio</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="sabiasque.html"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+              <circle cx="8" cy="4.5" r="1"/>
+            </svg> ¿Sabías que?</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" id="btn_inicia" href="login.html"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg> Inicia Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" id="userActivo" href="#" tabindex="-1" aria-disabled="true"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg></a>
+            <button class="btn-cerrar" id="btn_cerrar" onclick="confirmCerrar()">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+              <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+            </svg> Cerrar Sesión</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
         <div class="link">
         <a id="card1" href="Comercio.html" class="button">COMERCIO</a>
         <a id="card2" href="Comida.html" class="button">COMIDA</a>

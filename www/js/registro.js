@@ -87,6 +87,8 @@ function observador(){
         document.getElementById("userActivo").innerHTML = user.email;
         //hace visible el <li> cuando hay un usuario activo
         userActivo.style.display = "block";
+        btn_cerrar.style.display = "block";
+        btn_inicia.style.display = "none";
         estadoUser = true;
        
         // el usuario ha iniciado sesion
@@ -103,6 +105,7 @@ function observador(){
         // el usuario no ha iniciado sesion
         console.log('no existe usuario activo');
         estadoUser = false;
+        btn_inicia.style.display = "block";
         // ...
       }
     });
@@ -168,10 +171,15 @@ function cerrar(){
 function verifBotoncerrar(){
 	
 	if (estadoUser == true) {
-	    //hace visible el boton cerrar sesion
-		btn_cerrar.style.display = "inline";
+	    //hace visible el boton de cerrar sesión
+		btn_cerrar.style.display = "block";
+		//oculta el boton de iniciar sesión
+		btn_inicia.style.display = "none";
 	}else{
+		//oculta el boton de cerrar sesión
 		btn_cerrar.style.display = "none";
+		//hace visible el boton de iniciar sesion
+		btn_inicia.style.display = "block";
 	}
 
 }

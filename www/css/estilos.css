@@ -24,9 +24,17 @@ header {
 
 #userActivo{
     color: white;
-    text-align: center;
+    /*text-align: center;*/
     padding: 15px 20px;
     display: none;
+}
+
+#btn_cerrar{
+    display: none;
+}
+
+#btn_inicia{
+    display: block;
 }
 
 #btn-menu {
@@ -207,12 +215,11 @@ footer{
     margin-bottom: 18%;
 }
 h1{
-    margin: 0 auto;
+    margin: 0;
+    padding: 0 100%;
     text-align: center;
-    color: rgb(252, 249, 249);
+    color: white;
     font-family: corbel;
-    font-size: 50px;
-    font-weight: bold;
     background-color: teal;
     justify-items: center;
     flex: auto;
@@ -437,14 +444,20 @@ p{
 }
 
 .btn-cerrar{
-    background: rgb(0, 0, 0, 0.6) ;
+    background: #343A40;
     text-align: center;
-    margin: auto;
-    margin-top: 5px;
-    border-color: rgb(252, 40, 40);
-    border-radius: 15px;
+    margin: 0;
+    /* margin-top: 5px; */
+    /* border-color: rgb(252, 40, 40); */
+    /* border-radius: 15px; */
     color: white;
+    border: none;
+    padding-top: .5rem;
+    padding-right: 60%;
+    padding-bottom: .5rem;
+    padding-left: 0em;
 }
+
 a{
     text-decoration: none;
     color: #fff;
@@ -548,7 +561,7 @@ a{
      font-size: 10vm;
  }
  .btn-primary , .btn-segundary{
-     display: flex;
+     /*display: flex;*/
      flex-direction: column;
      text-align: center;
      margin-right: 20px;
@@ -607,4 +620,26 @@ a{
 .txt-bootbox{
     text-align: center;
     color: black;
+}
+
+#sm-logo{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 0px;
+}
+
+#nav-sm-logo{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#navbar-style{
+    padding: 1px 10px;
+    position: relative;
+}
+
+#btn-nuevo{
+    padding-right: 0px;
+    padding-left: 0px;
 }
