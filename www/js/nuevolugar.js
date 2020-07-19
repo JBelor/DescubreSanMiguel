@@ -12,7 +12,7 @@ window.addEventListener("load" , () => {
 var ImgComer;
 var nombreComer;
 var descripComer;
-var keys ;
+var keys;
 
  //var ref = firebase.database().ref('Categoria').child('Comercio');
   //var Ref = database.ref("Categorías").child("Comercio");
@@ -72,30 +72,6 @@ var keys ;
  	})
  }
 
- function mostrarComercio2(){
- 	firebase.database().ref("Categorías").child("Comercio").once("value", function(snapshot) {
-	  //console.log(snapshot.val());
-	  	var datos = snapshot.val();
-
-		//var Result = "";
-		for(var n in datos){
-			ImgComer += '<img width="100%" src="' + datos[n].img_url + '"/>';
-			nombreComer += datos[n].Nombre;
-			descripComer += datos[n].Descripcion;
-		}
-			document.getElementById('comercio_img').innerHTML = ImgComer;
-			document.getElementById("comercio_nombre").innerHTML = '<h4>' + nombreComer + '</h4>';
-			document.getElementById("comercio_descrip").innerHTML = '<p>' + descripComer + '</p>';
-			document.getElementById("bottons").innerHTML = "<a href='#' class='btn-primary'>Información</a><a href='#' class='btn-segundary'>Iniciar ruta</a>'";
-
-		//document.getElementById('comercio_item').innerHTML = '<p>' + Result + '</p>';
-		//NombreComer = snapshot[key].child("Nombre: ");
-		//console.log(NombreComer);
-	}, function (errorObject) {
-	  console.log("The read failed: " + errorObject.code);
-	});
- }
-
  function nuevoLugar(){
  	//subirImagen();
 
@@ -121,7 +97,12 @@ var keys ;
 	  }
 	}, function(error) {
 	  //gestionar errores
-	  alert("Se produjo un error");
+	  bootbox.alert({
+		size: "small",
+	    message: "<h4 class='txt-bootbox'>Se produjo un error</h4>",
+	    closeButton: false
+	  })
+	  //alert("Se produjo un error");
 	}, function() {
 	  //subida exitosa de la imagen
 	  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
@@ -141,7 +122,13 @@ var keys ;
 	        Imagenes: nombreImagen,
 	        img_url: downloadURL
 	  	});
-	  	alert("Nuevo sitio registrado correctamente");
+	  	//alert("Nuevo sitio registrado correctamente");
+	  	bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
+		    closeButton: false,
+		    callback: function(){ aComercio(); }
+		})
 	  });
 	});
 
@@ -149,34 +136,47 @@ var keys ;
 
 //  Todas las Card de la Categoria Comercio
 function mostrarComercio(){
- 		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
- 		snapshot.forEach(function(childSnapshot) { 
- 		//key es el id de cada registro
-		    this.key = childSnapshot.key;
- 			var ImgComer = childSnapshot.val().img_url;
- 			var nombreComer = childSnapshot.val().Nombre;
-		 	var descripComer = childSnapshot.val().Descripcion;
-		 	var gps = childSnapshot.val().Ubicacion;
- 		$("#comercio_item").append(
- 		'<div class="card"><img width="100%" heigth="80%" src="'
- 		+ ImgComer +
- 		'"/>'
- 		);
- 		$("#comercio_item").append(
- 		'<div class="container" id="comercio_nombre"><h4>'
- 		+ nombreComer
- 		);
- 		$("#comercio_item").append(
- 		'</h4><hr><p>'
- 		+ descripComer +
- 		'</p>'
-		 );
- 		$("#comercio_item").append(
-	   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\')" class="btn-primary"><a href= "informacion.html">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\')" class="btn-segundary"><a  href= "map.html">Iniciar ruta</button></div></div></div><br>'		
-	   );
-	});
- 	}, function (errorObject) {
-		console.log("The read failed: " + errorObject.code);
+
+	// Cuadro de carga
+	var dialog = bootbox.dialog({
+    title: 'Por favor espera',
+    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
+	closeButton: false
+	});           
+	dialog.init(function(){
+	    setTimeout(function(){
+	        bootbox.hideAll(); 
+	    
+	 		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
+	 		snapshot.forEach(function(childSnapshot) { 
+	 		//key es el id de cada registro
+			    this.key = childSnapshot.key;
+	 			var ImgComer = childSnapshot.val().img_url;
+	 			var nombreComer = childSnapshot.val().Nombre;
+			 	var descripComer = childSnapshot.val().Descripcion;
+			 	var gps = childSnapshot.val().Ubicacion;
+	 		$("#comercio_item").append(
+	 		'<div class="card"><img width="100%" heigth="80%" src="'
+	 		+ ImgComer +
+	 		'"/>'
+	 		);
+	 		$("#comercio_item").append(
+	 		'<div class="container" id="comercio_nombre"><h4>'
+	 		+ nombreComer
+	 		);
+	 		$("#comercio_item").append(
+	 		'</h4><p>'
+	 		+ descripComer +
+	 		'</p>'
+			 );
+	 		$("#comercio_item").append(
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   );
+		});
+	 	}, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		});
+ 	}, 2500);
 	});
 }
 // Mostrando Mas Informacion
@@ -212,17 +212,21 @@ function mostrarInfo() {
 							'</p>'
 							);
 						$("#comercio_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\')"><a  href= "map.html">Iniciar ruta</button></li></ul></br>'
+						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button></li></ul></br>'
 						);
 				}
 	});
 	}, function (errorObject) {
 	   console.log("The read failed: " + errorObject.code);
    });
-
-	
 }
 
-
-
-
+function aInfo(){
+	location.href="informacion.html";
+}
+function aMap(){
+	location.href="map.html";
+}
+function aComercio(){
+	location.href="Comercio.html";
+}

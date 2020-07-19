@@ -23,14 +23,26 @@ function registrarUsuario(){
 	        Apellido: document.getElementById('apellido').value,
 	        Correo: correoUser
 	  	});
+	 	bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>" + correo + " se ha registrado con exito</h4>",
+		    closeButton: false,
+		    callback: function(){ verificar(); }
+		})
 
-		alert(correo + " se ha registrado con exito");
-		verificar();
+		//alert(correo + " se ha registrado con exito");
+		//verificar();
+
 	})
 	.catch(function(error) {
 	  var errorCode = error.code;
 	  var errorMessage = error.message;
-	  alert("El correo o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)");
+	  //alert("El correo o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)");
+	  bootbox.alert({
+		message: "<h4 class='txt-bootbox'>El correo electronico o contraseña son invalidos. (La contraseña debe tener minimo 6 caracteres)</h4>",
+		size: 'small',
+		closeButton: false
+	  });
 	});
 }
 
@@ -44,14 +56,23 @@ function ingresar(){
 	
 	.then(function(){
 		estadoUser = true;
-		alert("Ingreso sesión con exito " + correo.value);
-		apaginaprincipal();
+		bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>Ingreso sesión con exito " + correo.value + "</h4>",
+		    closeButton: false,
+		    callback: function(){ apaginaprincipal(); }
+		})
+		//alert("Ingreso sesión con exito " + correo.value);
 	})
 	.catch(function(error){
 		console.log("Error al iniciar sesion");
-		alert("El usuario o contraseña no son validos");
+		bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>El usuario o contraseña no son validos</h4>",
+		    closeButton: false
+		})
+		//alert("El usuario o contraseña no son validos");
 	})
-
 	//promise.catch(e => alert(e.message))
 
 }	
@@ -68,8 +89,14 @@ function observador(){
         //muestra el correo del usuario en la etiqueta <li>
         document.getElementById("userActivo").innerHTML = user.email;
         //hace visible el <li> cuando hay un usuario activo
+<<<<<<< HEAD
 		userActivo.style.display = "block";
 		new_lugar.style.display = "block";
+=======
+        userActivo.style.display = "block";
+        btn_cerrar.style.display = "block";
+        btn_inicia.style.display = "none";
+>>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
         estadoUser = true;
        
         // el usuario ha iniciado sesion
@@ -86,6 +113,7 @@ function observador(){
         // el usuario no ha iniciado sesion
         console.log('no existe usuario activo');
         estadoUser = false;
+        btn_inicia.style.display = "block";
         // ...
       }
     });
@@ -98,14 +126,48 @@ function verificar(){
 
 	user.sendEmailVerification().then(function() {
 	  // Email sent.
-	  alert("Te hemos enviado un correo de verificación");
-	  apaginaprincipal();
+	  	bootbox.alert({
+		    size: "small",
+		    message: "<h4 class='txt-bootbox'>Te hemos enviado un correo de verificación</h4>",
+		    closeButton: false,
+		    callback: function(){ apaginaprincipal(); }
+		})
+	  	//alert("Te hemos enviado un correo de verificación");
+	  	//apaginaprincipal();
 	}).catch(function(error) {
 	  // An error happened.
-	  alert("No se pudo enviar el correo de verificación");
+	  bootbox.alert({
+	    size: "small",
+	    message: "<h4 class='txt-bootbox'>No se pudo enviar el correo de verificación</h4>",
+	    closeButton: false
+	  })
+	  //alert("No se pudo enviar el correo de verificación");
 	});
 }
 
+function confirmCerrar(){
+	bootbox.confirm({
+    message: "<h4 class='txt-bootbox'>¿Seguro que quieres cerrar sesión?</h4>",
+    buttons: {
+        confirm: {
+            label: 'SI',
+            className: 'btn-danger'
+        },
+        cancel: {
+            label: 'NO',
+            className: 'btn-primary'
+        }
+    },
+    callback: function (result) {
+        if (result==true) {
+        	cerrar();
+        }else{
+        	bootbox.hideAll();
+        }
+    }
+	});
+
+}
 
 //cierra sesion del usuario
 function cerrar(){
@@ -117,10 +179,15 @@ function cerrar(){
 function verifBotoncerrar(){
 	
 	if (estadoUser == true) {
-	    //hace visible el boton cerrar sesion
-		btn_cerrar.style.display = "inline";
+	    //hace visible el boton de cerrar sesión
+		btn_cerrar.style.display = "block";
+		//oculta el boton de iniciar sesión
+		btn_inicia.style.display = "none";
 	}else{
+		//oculta el boton de cerrar sesión
 		btn_cerrar.style.display = "none";
+		//hace visible el boton de iniciar sesion
+		btn_inicia.style.display = "block";
 	}
 
 }

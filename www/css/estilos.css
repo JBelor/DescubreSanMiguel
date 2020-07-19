@@ -24,9 +24,17 @@ header {
 
 #userActivo{
     color: white;
-    text-align: center;
+    /*text-align: center;*/
     padding: 15px 20px;
     display: none;
+}
+
+#btn_cerrar{
+    display: none;
+}
+
+#btn_inicia{
+    display: block;
 }
 
 #btn-menu {
@@ -85,9 +93,9 @@ div{
 
 #card1{
     background: rgba(63, 188, 239, 0.75);
-    height: 100px;  
+    height: 120px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     color: white;
     text-decoration: none;
     font-family: corbel;
@@ -102,9 +110,9 @@ div{
 #card2{
     background: rgba(0, 159, 60, 0.75);
     color: white;
-    height: 100px;  
+    height: 120px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -119,9 +127,9 @@ div{
 #card3{
     background: rgb(230, 59, 97, 0.75);
     color: white;
-    height: 100px;  
+    height: 120px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -135,9 +143,9 @@ div{
 #card4{
     background: rgb(103, 8, 123, 0.75);
     color: white;
-    height: 100px;  
+    height: 120px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -151,9 +159,9 @@ div{
 #card5{
     background: rgba(254, 246, 104, 0.75);
     color: white;
-    height: 100px;  
+    height: 120px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -207,12 +215,11 @@ footer{
     margin-bottom: 18%;
 }
 h1{
-    margin: 0 auto;
+    margin: 0;
+    padding: 0 100%;
     text-align: center;
-    color: rgb(252, 249, 249);
+    color: white;
     font-family: corbel;
-    font-size: 50px;
-    font-weight: bold;
     background-color: teal;
     justify-items: center;
     flex: auto;
@@ -253,6 +260,7 @@ input{
     text-align:center;
     padding-bottom: 25px;
     padding-top: 5px;
+    color: #ffffff;
   }
 
   .btn-primary{
@@ -266,34 +274,28 @@ input{
     border: 2px solid #000;
     /*margin-left: 20px;*/
   }
-  .btn-segundary{
+  .btn-secundary{
     text-decoration: none;
     padding: 10px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
     background-color: #04811f;
+    border-color: #04811f;
     border-radius: 6px;
-    border: 2px solid #000;
     margin-left: 20px;
   }
 
-hr{
-    color: white;
-    margin: 0 auto;
-    padding: 0 auto;
-}
-
 p{
     color:white;
-    margin: 0 auto;
-    /*margin-bottom: 30px;*/
+    margin-bottom: 0px;
     padding: 15px 40px 40px;
     user-select: none;
     word-wrap: break-word;
     text-align: center;
     background: rgba(15, 15, 15, 0.6);
 }
+
 .card-con{
     box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
     width: 50rem; 
@@ -441,15 +443,21 @@ p{
     display: none;
 }
 
-button{
-    background: rgb(0, 0, 0, 0.6) ;
+.btn-cerrar{
+    background: #343A40;
     text-align: center;
-    margin: auto;
-    margin-top: 5px;
-    border-color: rgb(252, 40, 40);
-    border-radius: 15px;
-   
+    margin: 0;
+    /* margin-top: 5px; */
+    /* border-color: rgb(252, 40, 40); */
+    /* border-radius: 15px; */
+    color: white;
+    border: none;
+    padding-top: .5rem;
+    padding-right: 60%;
+    padding-bottom: .5rem;
+    padding-left: 0em;
 }
+
 a{
     text-decoration: none;
     color: #fff;
@@ -553,7 +561,7 @@ a{
      font-size: 10vm;
  }
  .btn-primary , .btn-segundary{
-     display: flex;
+     /*display: flex;*/
      flex-direction: column;
      text-align: center;
      margin-right: 20px;
@@ -607,4 +615,31 @@ a{
     .card-login{
         margin-right: 100px;
     }
+}
+
+.txt-bootbox{
+    text-align: center;
+    color: black;
+}
+
+#sm-logo{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 0px;
+}
+
+#nav-sm-logo{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#navbar-style{
+    padding: 1px 10px;
+    position: relative;
+}
+
+#btn-nuevo{
+    padding-right: 0px;
+    padding-left: 0px;
 }
