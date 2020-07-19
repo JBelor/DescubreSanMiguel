@@ -1,4 +1,10 @@
 
+window.addEventListener("load" , () => {
+
+})
+
+
+
  var database = firebase.database();
  var nombreImagen;
 

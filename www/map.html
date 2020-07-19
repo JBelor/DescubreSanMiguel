@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/iniciarFirebase.js"></script>
     <script src="./js/maps.js"></script>
     
 </head>
@@ -18,8 +24,8 @@
                 <li><a href="principal.html">Inicio</a></li>
                 <li><a href="login.html">Sesion</a></li>
                 <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                <li><a href="nuevolugar.html">Nuevo Comercio</a></li>
-                <li ><button id="userActivo" onclick="cerrar()"></button></li>
+                <li><a id="vip" href="nuevolugar.html">Nuevo Comercio</a></li>
+                <li ><button id="userActivo"></button></li>
             </ul>
         </nav>
     </header>
@@ -27,6 +33,6 @@
         <script src="./js/maps.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAHS92A-y3yGN_ivU_tqZK_vVP3RjfAqY&callback=mapa"async defer></script>
     </div> 
-         
+    <script src="js/registro.js"></script>
 </body> 
 </html>

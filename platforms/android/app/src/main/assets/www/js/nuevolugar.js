@@ -141,11 +141,12 @@ var keys ;
 
  }
 
+//  Todas las Card de la Categoria Comercio
 function mostrarComercio(){
  		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
  		snapshot.forEach(function(childSnapshot) { 
  		//key es el id de cada registro
-		 this.key = childSnapshot.key;
+		    this.key = childSnapshot.key;
  			var ImgComer = childSnapshot.val().img_url;
  			var nombreComer = childSnapshot.val().Nombre;
 		 	var descripComer = childSnapshot.val().Descripcion;
@@ -172,51 +173,50 @@ function mostrarComercio(){
 		console.log("The read failed: " + errorObject.code);
 	});
 }
-
+// Mostrando Mas Informacion
 function mostrarInfo() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
 	firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
-			this.key = childSnapshot.key;
+				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
 				var nombreComer = childSnapshot.val().Nombre;
 				var descripComer = childSnapshot.val().Descripcion;
 				var cel  = childSnapshot.val().Telefono;
-		$("#comercio_item").append(
-		'<div class="card"><img width="100%" heigth="80%" src="'
-		+ ImgComer +
-		'"/>'
-		);	
-		$("#comercio_item").append(
-		'<div class="container" id="comercio_nombre"><h4>'
-		+ nombreComer
-		);
-		$("#comercio_item").append(
-		'</h4><hr><p class="text-info">'
-		+ descripComer+
-		'</p>'
-		);
-		$("#comercio_item").append(
-			'</h4><hr><p class="text-info"> Telefono : '
-			  + cel +
-			'</p>'
-			);
-		$("#comercio_item").append(
-		'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a href="map.html">Como Llegar</a></li></ul></br>'
-		);
+				var gps = childSnapshot.val().Ubicacion;
+				if(key == ob_key){
+					$("#comercio_item").append(
+						'<div class="card"><img width="100%" heigth="80%" src="'
+						+ ImgComer +
+						'"/>'
+						);	
+						$("#comercio_item").append(
+						'<div class="container" id="comercio_nombre"><h4>'
+						+ nombreComer
+						);
+						$("#comercio_item").append(
+						'</h4><hr><p class="text-info">'
+						+ descripComer+
+						'</p>'
+						);
+						$("#comercio_item").append(
+							'</h4><hr><p class="text-info"> Telefono : '
+							  + cel +
+							'</p>'
+							);
+						$("#comercio_item").append(
+						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\')"><a  href= "map.html">Iniciar ruta</button></li></ul></br>'
+						);
+				}
 	});
 	}, function (errorObject) {
 	   console.log("The read failed: " + errorObject.code);
    });
 
-	// return key;
-
+	
 }
 
-// function mostrarInfo(){
-// 	var ob_key = sessionStorage.getItem("key");
-// 	console.log(ob_key);
-// }
+
 
 

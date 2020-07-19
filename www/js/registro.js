@@ -3,6 +3,9 @@ const auth = firebase.auth();
 var database = firebase.database();
 var estadoUser = false;
 
+	var new_lugar = document.querySelector("#vip");
+	new_lugar.style.display = "none";
+
 //registra un nuevo usuario
 function registrarUsuario(){
 
@@ -65,7 +68,8 @@ function observador(){
         //muestra el correo del usuario en la etiqueta <li>
         document.getElementById("userActivo").innerHTML = user.email;
         //hace visible el <li> cuando hay un usuario activo
-        userActivo.style.display = "block";
+		userActivo.style.display = "block";
+		new_lugar.style.display = "block";
         estadoUser = true;
        
         // el usuario ha iniciado sesion

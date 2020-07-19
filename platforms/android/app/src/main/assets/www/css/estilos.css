@@ -334,6 +334,13 @@ p{
     margin: 1px;
     text-align: center;
 }
+
+#bt_list{
+    background: none;
+    border: none;
+
+}
+
 .login{
     display: flex;
     z-index: 1;
