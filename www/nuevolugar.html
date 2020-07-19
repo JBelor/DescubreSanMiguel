@@ -17,35 +17,15 @@
     <script src="js/nuevolugar.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-    <header>
-        <input type="checkbox" id="btn-menu">
-        <h2>San Miguel</h2>
-        <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
-        
-        <nav class="menu">
-            <ul>
-                <li><a href="principal.html">Inicio</a></li>
-                <li><a href="login.html">Sesion</a></li>
-                <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                <li><a id="vip" href="nuevolugar.html">Nuevo Comercio</a></li>
-                <li ><button id="userActivo"></button></li>
-            </ul>
-        </nav>
-    </header>
-    <div>
-        <h1>Nuevo Lugar</h1>
-    </div>
-    <div class="login" >    
-=======
     <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
       <nav class="">
-          <a href="#">
-            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <a href="principal.html">
+          <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-            <circle cx="8" cy="4.5" r="1"/>
-            </svg>
+            <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
+            <path fill-rule="evenodd" d="M11.5 8a.5.5 0 0 0-.5-.5H6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
+          </svg>
+        </a>
           </a>
       </nav>
       <nav class="navbar navbar-dark bg-dark" id="nav-sm-logo" align="center">
@@ -86,9 +66,10 @@
         </ul>
       </div>
     </nav>
+    <div class="link">
+      <h1>Nuevo Comercio</h1>
+    </div>
     <div class="login" >
-        <h1 style="font-size: ">Nuevo Comercio</h1>
->>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
         <div class="card-login" id="login">
             <div class="textbox">
                 <label class="text-input">Nombre del lugar</label>
@@ -103,12 +84,12 @@
             <div class="textbox">
                 <label class="text-input">Número de teléfono</label>
                 <i class="fa fa-user"></i>
-                <input type="tel" id="telLug" placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" required> 
+                <input type="number" id="telLug" placeholder="XXXX-XXXX" pattern="/^\d{4}-\d{4}$/ " maxlength="8" required> 
             </div>
             <div class="textbox">
                 <label class="text-input">Número de Whatsapp</label>
                 <i class="fa fa-user"></i>
-                <input type="tel" id="whatsLug" placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}" required> 
+                <input type="number" id="whatsLug" placeholder="XXXX-XXXX" pattern="/^\d{4}-\d{4}$/ " maxlength="8" required> 
             </div>
             <div class="textbox">
                 <label class="text-input">Facebook</label>
@@ -123,7 +104,7 @@
             <div class="textbox">
                 <label class="text-input">Ubicación en Google Maps</label>
                 <i class="fa fa-user"></i>
-                <input type="textbox" id="ubicLug" placeholder="Seleccionar ubicación" required> 
+                <input type="number" id="ubicLug" placeholder="Seleccionar ubicación" required> 
             </div>
             <div class="textbox">
                 <!--i class="fa fa-user"></i-->

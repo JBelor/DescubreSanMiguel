@@ -5,34 +5,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
         <link rel="stylesheet" href="css/estilos.css">
-    </head>
-    <body>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
         <script src="js/iniciarFirebase.js"></script>
-<<<<<<< HEAD
-        <header>
-            <input type="checkbox" id="btn-menu">
-             <h2>Registro</h2>
-                <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
-                <nav class="menu">
-                     <ul>
-                        <li><a href="principal.html">Inicio</a></li>
-                        <li><a href="login.html">Sesion</a></li>
-                        <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                        <li><a id="vip" href="nuevolugar.html">Nuevo Comercio</a></li>
-                        <li ><button id="userActivo"></button></li>
-                     </ul>
-             </nav>
-        </header>
-=======
+        <script src="js/nuevolugar.js"></script>
         <script src="js/registro.js"></script>
+    </head>
+    <body>
+       
         <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
           <nav class="">
               <a href="login.html">
@@ -79,9 +65,10 @@
             </ul>
           </div>
         </nav>
->>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
+        <div class="link">
+          <h1>Registro</h1> 
+        </div>
             <div class="login">
-                <h1>Registro</h1>
                 <div class="card-login">
                     <div class="textbox">
                         <i class="fa fa-users"></i>
@@ -95,10 +82,6 @@
                         <i class="fa fa-at"></i>
                         <input type="text" name="correo" id="correo" placeholder="Correo" required> 
                     </div>
-                    <!--div class="textbox">
-                        <i class="fa fa-user"></i>
-                        <input type="text" name="user" placeholder="Usuario" required> 
-                    </div-->
                     <div class="textbox">
                         <i class="fa fa-unlock-alt"></i>
                         <input type="password" name="pass" id="contra" placeholder="Contraseña" required>
@@ -107,7 +90,6 @@
                         <button class="bottom-regi" onclick="registrarUsuario()">Registrarse</button>
                   </div>  
             </div>
-            <script src="js/registro.js"></script>
     </body>
     <footer id="footeregistro" class="footer-copyright text-center py-3">©ALFA Derechos Reservado 2020</footer>
 </html>

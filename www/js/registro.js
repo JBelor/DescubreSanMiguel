@@ -3,14 +3,21 @@ const auth = firebase.auth();
 var database = firebase.database();
 var estadoUser = false;
 
-	var new_lugar = document.querySelector("#vip");
-	new_lugar.style.display = "none";
 
 //registra un nuevo usuario
 function registrarUsuario(){
-
+	var nombre = document.getElementById('nombre').value;
+	var apellido = document.getElementById('apellido').value;
 	var correo = document.getElementById('correo').value;
 	var contra = document.getElementById('contra').value;
+
+	if(nombre === "" || apellido === ""){
+		bootbox.alert({
+			size: "small",
+			message: "<h4 class='txt-bootbox'>Todos los campos son requeridos</h4>",
+		})
+		return false;
+	}
 
 	firebase.auth().createUserWithEmailAndPassword(correo, contra)
 
@@ -80,23 +87,20 @@ function ingresar(){
 
 //verifica si hay un usuario activo
 function observador(){
-            
+	// var nm = document.querySelector("#btn_nuevo");
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log('existe usuario activo');
         console.log(user.emailVerified);
         console.log(user.email);
         //muestra el correo del usuario en la etiqueta <li>
-        document.getElementById("userActivo").innerHTML = user.email;
+		document.getElementById("userActivo").innerHTML = user.email;
         //hace visible el <li> cuando hay un usuario activo
-<<<<<<< HEAD
 		userActivo.style.display = "block";
-		new_lugar.style.display = "block";
-=======
+		// nm.style.display = "block";
         userActivo.style.display = "block";
         btn_cerrar.style.display = "block";
         btn_inicia.style.display = "none";
->>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
         estadoUser = true;
        
         // el usuario ha iniciado sesion
@@ -113,7 +117,8 @@ function observador(){
         // el usuario no ha iniciado sesion
         console.log('no existe usuario activo');
         estadoUser = false;
-        btn_inicia.style.display = "block";
+		btn_inicia.style.display = "block";
+		// nm.style.display = "none";
         // ...
       }
     });

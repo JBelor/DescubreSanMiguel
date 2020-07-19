@@ -73,65 +73,84 @@ var keys;
  }
 
  function nuevoLugar(){
- 	//subirImagen();
 
- 	fichero = document.getElementById("imagen");
-  	fichero.addEventListener("change", subirImagen, false);
-
-  	var imagenASubir = fichero.files[0];
-
-	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
-
-
-	uploadTask.on('state_changed', function(snapshot){
-	  //se muestra el proceso de subida de imagen
-	  var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-	  console.log('Upload is ' + progress + '% done');
-	  switch (snapshot.state) {
-	    case firebase.storage.TaskState.PAUSED: // or 'paused'
-	      console.log('Upload is paused');
-	      break;
-	    case firebase.storage.TaskState.RUNNING: // or 'running'
-	      console.log('Upload is running');
-	      break;
-	  }
-	}, function(error) {
-	  //gestionar errores
-	  bootbox.alert({
-		size: "small",
-	    message: "<h4 class='txt-bootbox'>Se produjo un error</h4>",
-	    closeButton: false
-	  })
-	  //alert("Se produjo un error");
-	}, function() {
-	  //subida exitosa de la imagen
-	  uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-	    console.log('Enlace de la imagen: ', downloadURL);
-
-		//crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
-		
-		nombreImagen = imagenASubir.name;
-	 	firebase.database().ref("Categorías").child("Comercio").push({
-	        Nombre: document.getElementById('nombreLug').value,
-	        Descripcion: document.getElementById('descripLug').value,
-	        Telefono: document.getElementById('telLug').value,
-	        Whatsapp: document.getElementById('whatsLug').value,
-	        Facebook: document.getElementById('fbUrlLug').value,
-	        Instagram: document.getElementById('instaUrlLug').value,
-	        Ubicacion: document.getElementById('ubicLug').value,
-	        Imagenes: nombreImagen,
-	        img_url: downloadURL
-	  	});
-	  	//alert("Nuevo sitio registrado correctamente");
-	  	bootbox.alert({
-		    size: "small",
-		    message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
+	// Validar formulario
+	var nombre = document.querySelector("#nombreLug").value;
+	var descripcion = document.querySelector("#descripLug").value;
+	var telefono = document.querySelector("#telLug").value;
+	var wha = document.querySelector("#whatsLug").value;
+	var fc = document.querySelector("#fbUrlLug").value;
+	var insta = document.querySelector("#instaUrlLug").value;
+	var ubi = document.querySelector("#ubicLug").value;
+	var imagen = document.querySelector("#imagen").value;
+	var RegExp_number= "/^\d{4}-\d{4}$/";
+	var RegExp_url = "(/^HTTP|HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?$/)";
+	if(nombre === "" || descripcion === "" || imagen ===""){
+		bootbox.alert({
+			size: "small",
+		    message: "<h4 class='txt-bootbox'>Todos los campos son requeridos</h4>",
 		    closeButton: false,
-		    callback: function(){ aComercio(); }
 		})
+	}else{
+		//subirImagen();
+		fichero = document.getElementById("imagen");
+		fichero.addEventListener("change", subirImagen, false);
+  
+		var imagenASubir = fichero.files[0];
+  
+	  	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
+  
+	  uploadTask.on('state_changed', function(snapshot){
+		//se muestra el proceso de subida de imagen
+		var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+		console.log('Upload is ' + progress + '% done');
+		switch (snapshot.state) {
+		  case firebase.storage.TaskState.PAUSED: // or 'paused'
+			console.log('Upload is paused');
+			break;
+		  case firebase.storage.TaskState.RUNNING: // or 'running'
+			console.log('Upload is running');
+			break;
+		}
+	  }, function(error) {
+		//gestionar errores
+		bootbox.alert({
+		  size: "small",
+		  message: "<h4 class='txt-bootbox'>Se produjo un error</h4>",
+		  closeButton: false
+		})
+		//alert("Se produjo un error");
+	  }, function() {
+		//subida exitosa de la imagen
+		uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+		  console.log('Enlace de la imagen: ', downloadURL);
+  
+		  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
+		  
+		  nombreImagen = imagenASubir.name;
+		   firebase.database().ref("Categorías").child("Comercio").push({
+			  Nombre: document.getElementById('nombreLug').value,
+			  Descripcion: document.getElementById('descripLug').value,
+			  Telefono: document.getElementById('telLug').value,
+			  Whatsapp: document.getElementById('whatsLug').value,
+			  Facebook: document.getElementById('fbUrlLug').value,
+			  Instagram: document.getElementById('instaUrlLug').value,
+			  Ubicacion: document.getElementById('ubicLug').value,
+			  Imagenes: nombreImagen,
+			  img_url: downloadURL
+			});
+			//alert("Nuevo sitio registrado correctamente");
+			bootbox.alert({
+			  size: "small",
+			  message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
+			  closeButton: false,
+			  callback: function(){ aComercio(); }
+		  })
+		});
 	  });
-	});
+	}
 
+		
  }
 
 //  Todas las Card de la Categoria Comercio
@@ -212,8 +231,10 @@ function mostrarInfo() {
 							'</p>'
 							);
 						$("#comercio_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button></li></ul></br>'
+						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button></a></li></ul></br>'
 						);
+
+						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
 				}
 	});
 	}, function (errorObject) {

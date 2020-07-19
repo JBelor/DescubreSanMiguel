@@ -343,6 +343,18 @@ p{
 
 }
 
+span{
+    margin: 10px ;
+    color: white;
+    font-size: 20px;
+    
+}
+
+.cuenta{
+    margin: auto;
+    margin-left: -50px;
+}
+
 .login{
     display: flex;
     z-index: 1;
@@ -429,6 +441,11 @@ p{
     background-color: #04811f;
     border-radius: 6px;
     border: 2px solid #000000;
+    margin-right: -25px;
+   
+}
+#btn_nuevo{
+ margin-left: -25px;
 }
 
 .bottom-salir{
@@ -574,7 +591,13 @@ a{
  
 }
 
-  
+  @media (max-width:360px){
+#navbar-pre{
+    justify-items: center;
+    margin:0px 0px;
+    padding: 0px;
+}
+  }
 
 @media (max-width:340px){
     .login{

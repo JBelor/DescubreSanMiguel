@@ -3,36 +3,21 @@
     <head>
         <title>Descubre San Miguel</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-        <link rel="stylesheet" href="css/estilos.css">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <script src="js/iniciarFirebase.js"></script>
+    <script src="js/nuevolugar.js"></script>
+    <script src="js/registro.js"></script>
     </head>
     <body>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-        <script src="js/iniciarFirebase.js"></script>
-<<<<<<< HEAD
-        <header>
-            <input type="checkbox" id="btn-menu">
-             <h2>Login</h2>
-                <label for="btn-menu"><img class="icon-menu" src="img/menu.png" width="35px" height="35px"></label>
-                <nav class="menu">
-                     <ul>
-                        <li><a href="principal.html">Inicio</a></li>
-                        <li><a href="login.html">Sesion</a></li>
-                        <li><a href="sabiasque.html">¿Sabias Que?</a></li>
-                        <li><a id="vip" href="nuevolugar.html">Nuevo Comercio</a></li>
-                        <li ><button id="userActivo" onclick="cerrar()"></button></li>
-                     </ul>
-             </nav>
-        </header>
-        <div class="login" >    
-=======
-        <script src="js/registro.js"></script>
         <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
           <nav class="">
               <a href="principal.html">
@@ -79,9 +64,10 @@
             </ul>
           </div>
         </nav>
-        <div class="login" >
-            <h1>Login</h1>  
->>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
+        <div class="link">
+          <h1>Login</h1> 
+        </div>
+        <div class="login" > 
             <div class="card-login" id="login">
                 <div class="textbox">
                     <i class="fa fa-user"></i>
@@ -92,18 +78,15 @@
                         <input type="password" id="contra2" placeholder="Contraseña" required> 
                 </div>
                 <div>
-                 <button class="bottom-regi" onclick="location.href='Registro.html'">Registrate</button>
-                 <!--a class="bottom-ingre" href="principal.html">Ingresar</a-->
-                 <button class="bottom-ingre" onclick="ingresar()">Ingresar</button>
-<<<<<<< HEAD
-=======
-                 <button class="bottom-salir" id="btn_cerrar" onclick="cerrar()">Cerrar Sesión</button>
+                 <button class="bottom-regi" onclick="ingresar()">Ingresar</button>
                  <!--script>verifBotoncerrar();</script-->
->>>>>>> 256d9f48ac01ac8796c4007c39b8f982ea1c9f98
                  </div>
             </div>  
+            <div id="cuenta">
+              <span>Aun no tienes una cuenta ?</span><button class="bottom-ingre" onclick="location.href='Registro.html'">Registrate</button>
+            </div>
+
         </div>
-        <script src="js/registro.js"></script>
     </body>
     <footer class="footer-copyright text-center py-3" id="footerlogin">©ALFA Derechos Reservado 2020</footer>
 </html>
