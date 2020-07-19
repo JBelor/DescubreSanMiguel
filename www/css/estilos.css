@@ -93,7 +93,7 @@ div{
 
 #card1{
     background: rgba(63, 188, 239, 0.75);
-    height: 120px;  
+    height: 117px;  
     padding: 4% 28%;
     width: 100%;
     color: white;
@@ -110,7 +110,7 @@ div{
 #card2{
     background: rgba(0, 159, 60, 0.75);
     color: white;
-    height: 120px;  
+    height: 117px;  
     padding: 4% 28%;
     width: 100%;
     text-decoration: none;
@@ -127,7 +127,7 @@ div{
 #card3{
     background: rgb(230, 59, 97, 0.75);
     color: white;
-    height: 120px;  
+    height: 117px;  
     padding: 4% 28%;
     width: 100%;
     text-decoration: none;
@@ -143,7 +143,7 @@ div{
 #card4{
     background: rgb(103, 8, 123, 0.75);
     color: white;
-    height: 120px;  
+    height: 117px;  
     padding: 4% 28%;
     width: 100%;
     text-decoration: none;
@@ -159,7 +159,7 @@ div{
 #card5{
     background: rgba(254, 246, 104, 0.75);
     color: white;
-    height: 120px;  
+    height: 117px;   
     padding: 4% 28%;
     width: 100%;
     text-decoration: none;
@@ -559,13 +559,6 @@ a{
     
 }
 
-@media (max-width:480px){
-    #login{
-        /* margin-top: 55%; */
-    }
-    
-}
-
 @media (max-width:357px){
     h4,h2, h1{
         font-size: 10vw;
@@ -640,9 +633,30 @@ a{
     }
 }
 
+
+@media (min-height:730px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 139px;
+    }
+}
+
+
+@media (min-height:820px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 162px;
+    }
+}
+
+@media (min-height:665px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 163px;
+    }
+}
+
 .txt-bootbox{
     text-align: center;
     color: black;
+   
 }
 
 #sm-logo{

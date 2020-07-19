@@ -14,7 +14,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
     <script src="js/iniciarFirebase.js"></script>
-    <script src="js/registro.js"></script>
     <script src="js/nuevolugar.js"></script>
 </head>
 <body>
@@ -31,13 +30,13 @@
           <nav class="navbar navbar-dark bg-dark" id="nav-sm-logo" align="center">
             <a class="navbar-brand" id="sm-logo" href="principal.html">San Miguel</a>
           </nav>
-          <!-- <nav class="navbar navbar-dark bg-dark" id="btn-nuevo">
+          <nav class="navbar navbar-dark bg-dark" id="btn-nuevo">
             <a class="bg-dark" href="#"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
               <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
               <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
             </svg></a>
-          </nav> -->
+          </nav>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,9 +49,11 @@
                 </svg> Inicio</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="sabiasque.html"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                  <circle cx="8" cy="4.5" r="1"/>
+                <a class="nav-link" href="sabiasque.html">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
+                    <circle cx="8" cy="4.5" r="1"/>
                 </svg> ¿Sabías que?</a>
               </li>
               <li class="nav-item active">
@@ -73,39 +74,10 @@
         </nav>
     <div class="link">
       <h1>Salud</h1>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>Catedral</h4>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>Alcaldia de San Miguel</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div> 
-        </div>
-      </div>
-      
-      <div class="card">
-        <img  src="img/Catedral-original.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4>La tapa</h4>
-          <p >Some quick example text to build on the card up the bulk of the card's content.</p>
-          <div class="container" id="bottons"> 
-            <a href="#" class="btn-primary">Informacion</a> 
-            <a href="#" class="btn-segundary">Iniciar ruta</a>
-          </div>  
-        </div>
+      <div class="salud-item" id="salud_item">
+        
+        <script>mostrarSalud();</script>
+          
       </div>
     </div>
     <script src="js/registro.js"></script>
