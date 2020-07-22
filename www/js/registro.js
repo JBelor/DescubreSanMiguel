@@ -15,6 +15,7 @@ function registrarUsuario(){
 		bootbox.alert({
 			size: "small",
 			message: "<h4 class='txt-bootbox'>Todos los campos son requeridos</h4>",
+			closeButton: false
 		})
 		return false;
 	}
