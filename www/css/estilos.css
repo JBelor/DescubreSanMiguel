@@ -220,7 +220,7 @@ h1{
     text-align: center;
     color: white;
     font-family: corbel;
-    background-color: teal;
+    background-color: #1C70B0;
     justify-items: center;
     flex: auto;
 }
@@ -342,10 +342,14 @@ p{
     margin: 5px 0;
 }
 
-#referencias li  {
+#referencias li {
     border-top: 1px solid #fff;
     margin: 1px;
     text-align: center;
+    text-decoration: none;
+}
+
+#referencias ul a {
     text-decoration: none;
 }
 
@@ -716,4 +720,28 @@ a{
 #txt-label{
     color: white;
     font-size: 20px;
+}
+
+#btn-mas{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background:#1C70B0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:10px;
+    margin-bottom:10px;
+    border:none;
+    outline:none;
+    color:#FFF;
+    font-family:Sans-serif;
+    font-size:32px;
+    /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px */
+}
+
+#img-item{
+    margin-top: 10px;
+    border: 1px solid #fff;
+    border-radius: 1%;
 }

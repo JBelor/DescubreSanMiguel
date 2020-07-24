@@ -3,7 +3,7 @@ window.addEventListener("load" , () => {
 
 })
 
-
+var numTel;
 
  var database = firebase.database();
  var nombreImagen;
@@ -176,7 +176,7 @@ function mostrarComercio(){
 			 	var descripComer = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#comercio_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
+	 		'<div id="card"><img id="img-item" width="100%" heigth="80%" src="'
 	 		+ ImgComer +
 	 		'"/>'
 	 		);
@@ -435,8 +435,8 @@ function mostrarInfo() {
 								}
 								if(whats !== ""){
 									$("#comercio_item").append(
-									'<ul class="container" id="referencias"><a href="'
-								  	+ whats +
+									'<ul class="container" id="referencias"><a href="https://api.whatsapp.com/send?phone='
+									+ whats +
 									'"><li><img id="img-contact" src="img/whatsapp.png" width="15%"><label>Whatsapp</label></li></a></ul>'
 									);
 								}
@@ -456,8 +456,8 @@ function mostrarInfo() {
 								}
 								if(tel !== ""){
 									$("#comercio_item").append(
-									'<ul class="container" id="referencias"><a href="'
-								  	+ tel +
+									'<ul class="container" id="referencias"><a href="tel:'
+									+ tel +
 									'"><li><img id="img-contact" src="img/tel.png" width="15%">Teléfono</li></a></ul>'
 									);
 								}
@@ -648,9 +648,6 @@ function mostrarInfo_Turismo() {
 	   console.log("The read failed: " + errorObject.code);
    });
 }
-
-
-
 
 function aInfo(){
 	location.href="informacion.html";
