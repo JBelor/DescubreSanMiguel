@@ -632,3 +632,6 @@ function aMap4(){
 function aComercio(){
 	location.href="Comercio.html";
 }
+
+
+

@@ -199,7 +199,7 @@ h4{
 }
 
 footer{
-    color:white;
+    color:rgb(255, 255, 255);
     font-size: 20px;
     padding: 6%;
     padding-left: 2%;
@@ -664,17 +664,28 @@ a{
     font-family: Srabi Script;
     font-size: 35px;
     margin-right: 0px;
+    padding: 0px;
+}
+
+#sm-logo-mapa{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 50px;
+    
 }
 
 #nav-sm-logo{
     padding-top: 0px;
     padding-bottom: 0px;
+    margin-right: 5px;
 }
 
 #navbar-style{
     padding: 1px 10px;
     position: relative;
 }
+
 
 #btn-nuevo{
     padding-right: 0px;
