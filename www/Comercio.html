@@ -23,7 +23,7 @@
         <h2>COMERCIO</h2>
        <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
           <nav class="">
-              <a href="principal.html">
+              <a href="javascript: history.go(-1)">
                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                   <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
@@ -34,15 +34,8 @@
           <nav class="navbar navbar-dark bg-dark" id="nav-sm-logo" align="center">
             <a class="navbar-brand" id="sm-logo" href="principal.html">San Miguel</a>
           </nav>
-           <nav class="navbar navbar-dark bg-dark" id="btn_nuevo">
-            <a class="bg-dark" href="nuevolugar.html"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
-              <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
-              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            </svg></a>
-          </nav> 
           <button class="navbar-toggler" id="navbar-pre" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span id="menu-navbar" class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
@@ -77,11 +70,16 @@
           </div>
         </nav>
     <div class="link">
-      <h1>Comercio</h1>
       <div class="comercio-item" id="comercio_item">
         
+        <h1>Comercio</h1>
         <script>mostrarComercio();</script>
-          
+        <!--img id="btn-flotante" src="img/mas.png" width="15%"-->
+        <a href="nuevolugar.html">
+          <button id="btn-mas">
+            <span>+</span>
+          </button> 
+        </a>
       </div>
     </div>
     <script src="js/registro.js"></script>

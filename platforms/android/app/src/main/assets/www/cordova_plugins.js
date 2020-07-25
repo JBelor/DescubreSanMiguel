@@ -13,10 +13,19 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
       "pluginId": "cordova-plugin-geolocation",
       "runs": true
+    },
+    {
+      "id": "cordova-plugin-phone-call.phonedialer",
+      "file": "plugins/cordova-plugin-phone-call/www/dialer.js",
+      "pluginId": "cordova-plugin-phone-call",
+      "merges": [
+        "cordova.plugins.phonedialer"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-geolocation": "4.0.2"
+    "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-phone-call": "1.1.3"
   };
 });

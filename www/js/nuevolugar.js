@@ -3,7 +3,7 @@ window.addEventListener("load" , () => {
 
 })
 
-
+var numTel;
 
  var database = firebase.database();
  var nombreImagen;
@@ -81,6 +81,7 @@ var keys;
 	var wha = document.querySelector("#whatsLug").value;
 	var fc = document.querySelector("#fbUrlLug").value;
 	var insta = document.querySelector("#instaUrlLug").value;
+	var web = document.querySelector("#webUrlLug").value;
 	var ubi = document.querySelector("#ubicLug").value;
 	var imagen = document.querySelector("#imagen").value;
 	var RegExp_number= "/^\d{4}-\d{4}$/";
@@ -135,6 +136,7 @@ var keys;
 			  Whatsapp: document.getElementById('whatsLug').value,
 			  Facebook: document.getElementById('fbUrlLug').value,
 			  Instagram: document.getElementById('instaUrlLug').value,
+			  Web: document.getElementById('webUrlLug').value,
 			  Ubicacion: document.getElementById('ubicLug').value,
 			  Imagenes: nombreImagen,
 			  img_url: downloadURL
@@ -174,7 +176,7 @@ function mostrarComercio(){
 			 	var descripComer = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#comercio_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
+	 		'<div id="card"><img id="img-item" width="100%" heigth="80%" src="'
 	 		+ ImgComer +
 	 		'"/>'
 	 		);
@@ -382,44 +384,95 @@ function mostrarTurismo(){
 function mostrarInfo() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
-		snapshot.forEach(function(childSnapshot) { 
-				this.key = childSnapshot.key;
-				var ImgComer = childSnapshot.val().img_url;
-				var nombreComer = childSnapshot.val().Nombre;
-				var descripComer = childSnapshot.val().Descripcion;
-				var cel  = childSnapshot.val().Telefono;
-				var gps = childSnapshot.val().Ubicacion;
-				if(key == ob_key){
-					$("#comercio_item").append(
-						'<div class="card"><img width="100%" heigth="80%" src="'
-						+ ImgComer +
-						'"/>'
-						);	
-						$("#comercio_item").append(
-						'<div class="container" id="comercio_nombre"><h4>'
-						+ nombreComer
-						);
-						$("#comercio_item").append(
-						'</h4><hr><p class="text-info">'
-						+ descripComer+
-						'</p>'
-						);
-						$("#comercio_item").append(
-							'</h4><hr><p class="text-info"> Telefono : '
-							  + cel +
-							'</p>'
-							);
-						$("#comercio_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button></a></li></ul></br>'
-						);
 
-						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
-				}
+	var dialog = bootbox.dialog({
+    title: 'Por favor espera',
+    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
+	closeButton: false
+	});           
+	dialog.init(function(){
+	    setTimeout(function(){
+	        bootbox.hideAll();
+			firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
+				snapshot.forEach(function(childSnapshot) { 
+						this.key = childSnapshot.key;
+						var ImgComer = childSnapshot.val().img_url;
+						var nombreComer = childSnapshot.val().Nombre;
+						var descripComer = childSnapshot.val().Descripcion;
+						var tel  = childSnapshot.val().Telefono;
+						var whats  = childSnapshot.val().Whatsapp;
+						var face  = childSnapshot.val().Facebook;
+						var insta  = childSnapshot.val().Instagram;
+						var web = childSnapshot.val().Web;
+						var gps = childSnapshot.val().Ubicacion;
+						if(key == ob_key){
+							$("#comercio_item").append(
+								'<div class="card"><img width="100%" heigth="80%" src="'
+								+ ImgComer +
+								'"/>'
+								);	
+								$("#comercio_item").append(
+								'<div class="container" id="comercio_nombre"><h4>'
+								+ nombreComer
+								);
+								$("#comercio_item").append(
+								'</h4><p id="text-info">'
+								+ descripComer+
+								'</p>'
+								);
+								$("#comercio_item").append(
+									'</h4><p id="text-info"> Telefono: '
+									  + tel +
+									'</p>'
+								);
+								
+								if(face !== ""){
+									$("#comercio_item").append(
+									'<ul class="container" id="referencias"><a href="'
+								  	+ face +
+									'"><li><img id="img-contact" src="img/facebook.png" width="15%"><label>Facebook</label></li></a></ul>'
+									);
+								}
+								if(whats !== ""){
+									$("#comercio_item").append(
+									'<ul class="container" id="referencias"><a href="https://api.whatsapp.com/send?phone='
+									+ whats +
+									'"><li><img id="img-contact" src="img/whatsapp.png" width="15%"><label>Whatsapp</label></li></a></ul>'
+									);
+								}
+								if(insta !== ""){
+									$("#comercio_item").append(
+									'<ul class="container" id="referencias"><a href="'
+								  	+ insta +
+									'"><li><img id="img-contact" src="img/instagram.png" width="15%"><label>Instagram</label></li></a></ul>'
+									);
+								}
+								if(web !== ""){
+									$("#comercio_item").append(
+									'<ul class="container" id="referencias"><a href="'
+								  	+ web +
+									'"><li><img id="img-contact" src="img/web.png" width="15%"><label>Sitio Web</label></li></a></ul>'
+									);
+								}
+								if(tel !== ""){
+									$("#comercio_item").append(
+									'<ul class="container" id="referencias"><a href="tel:'
+									+ tel +
+									'"><li><img id="img-contact" src="img/tel.png" width="15%">Teléfono</li></a></ul>'
+									);
+								}
+								$("#comercio_item").append(
+								'<ul class="container" id="referencias"><a href="map.html" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');"><li><img id="img-contact" src="img/ubicacion.png" width="15%"><label>Trazar ruta</label></li></a></ul>'
+								);
+
+								// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
+						}
+			});
+			}, function (errorObject) {
+			   console.log("The read failed: " + errorObject.code);
+		   });
+	}, 1500);
 	});
-	}, function (errorObject) {
-	   console.log("The read failed: " + errorObject.code);
-   });
 }
 
 // <<<<<<<<  Mostrando informacion de Comida>>>>>>>>>>
@@ -595,9 +648,6 @@ function mostrarInfo_Turismo() {
 	   console.log("The read failed: " + errorObject.code);
    });
 }
-
-
-
 
 function aInfo(){
 	location.href="informacion.html";
