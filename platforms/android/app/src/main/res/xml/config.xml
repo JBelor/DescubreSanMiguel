@@ -7,6 +7,9 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
+    <feature name="PhoneDialer">
+        <param name="android-package" value="org.apache.cordova.phonedialer.PhoneDialer" />
+    </feature>
     <name>DSM</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -24,7 +27,4 @@
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
-    <feature name="PhoneDialer">
-        <param name="android-package" value="org.apache.cordova.phonedialer.PhoneDialer" />
-    </feature>
 </widget>

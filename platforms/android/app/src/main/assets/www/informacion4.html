@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Descubre San Miguel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-        <link rel="stylesheet" href="css/estilos.css">
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-        <script src="js/iniciarFirebase.js"></script>
-        <script src="js/nuevolugar.js"></script>
-        <script src="js/registro.js"></script>
-    </head>
-    <body>
-        <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
+<head>
+    <title>Descubre San Miguel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    <script src="js/iniciarFirebase.js"></script>
+    <script src="js/nuevolugar.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <nav id="navbar-style" class="navbar sticky-top navbar-dark bg-dark">
           <nav class="">
-              <a href="javascript: history.go(-1)">
+              <a href="Salud.html">
                 <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-arrow-left-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                   <path fill-rule="evenodd" d="M8.354 11.354a.5.5 0 0 0 0-.708L5.707 8l2.647-2.646a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708 0z"/>
@@ -30,6 +29,13 @@
           </nav>
           <nav class="navbar navbar-dark bg-dark" id="nav-sm-logo" align="center">
             <a class="navbar-brand" id="sm-logo" href="principal.html">San Miguel</a>
+          </nav>
+          <nav class="navbar navbar-dark bg-dark" id="btn-nuevo">
+            <a class="bg-dark" href="nuevolugar.html"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+              <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+              <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            </svg></a>
           </nav>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span id="menu-navbar" class="navbar-toggler-icon"></span>
@@ -64,31 +70,12 @@
             </ul>
           </div>
         </nav>
-        <div class="">
-          <h1>Registro</h1> 
-        </div>
-            <div class="login">
-                <div class="card-login">
-                    <div class="textbox">
-                        <i class="fa fa-users"></i>
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required> 
-                    </div>
-                    <div class="textbox">
-                        <i class="fa fa-puzzle-piece"></i>
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required> 
-                    </div>
-                    <div class="textbox">
-                        <i class="fa fa-at"></i>
-                        <input type="text" name="correo" id="correo" placeholder="Correo" required> 
-                    </div>
-                    <div class="textbox">
-                        <i class="fa fa-unlock-alt"></i>
-                        <input type="password" name="pass" id="contra" placeholder="Contraseña" required>
-                    </div>
-                        <!--a class="bottom-regi" onclick="registrarDatos()" href="">Enviar</a-->
-                        <button class="bottom-regi" onclick="registrarUsuario()">Registrarse</button>
-                  </div>  
-            </div>
-    </body>
-    <footer id="footeregistro" class="footer-copyright text-center py-3">©ALFA Derechos Reservado 2020</footer>
+    <div class="link">
+    <h1>Información</h1>
+        <div class="salud-item" id="salud_item">
+            <script>mostrarInfo_Salud();</script>
+          </div>  
+    </div>
+    <script src="js/registro.js"></script>
+</body> 
 </html>

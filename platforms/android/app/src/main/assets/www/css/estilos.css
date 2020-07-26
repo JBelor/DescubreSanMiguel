@@ -24,9 +24,17 @@ header {
 
 #userActivo{
     color: white;
-    text-align: center;
+    /*text-align: center;*/
     padding: 15px 20px;
     display: none;
+}
+
+#btn_cerrar{
+    display: none;
+}
+
+#btn_inicia{
+    display: block;
 }
 
 #btn-menu {
@@ -85,9 +93,9 @@ div{
 
 #card1{
     background: rgba(63, 188, 239, 0.75);
-    height: 100px;  
+    height: 117px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     color: white;
     text-decoration: none;
     font-family: corbel;
@@ -102,9 +110,9 @@ div{
 #card2{
     background: rgba(0, 159, 60, 0.75);
     color: white;
-    height: 100px;  
+    height: 117px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -119,9 +127,9 @@ div{
 #card3{
     background: rgb(230, 59, 97, 0.75);
     color: white;
-    height: 100px;  
+    height: 117px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -135,9 +143,9 @@ div{
 #card4{
     background: rgb(103, 8, 123, 0.75);
     color: white;
-    height: 100px;  
+    height: 117px;  
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -151,9 +159,9 @@ div{
 #card5{
     background: rgba(254, 246, 104, 0.75);
     color: white;
-    height: 100px;  
+    height: 117px;   
     padding: 4% 28%;
-    width: 240px;
+    width: 100%;
     text-decoration: none;
     font-family: corbel;
     font-size: 45px;
@@ -191,7 +199,7 @@ h4{
 }
 
 footer{
-    color:white;
+    color:rgb(255, 255, 255);
     font-size: 20px;
     padding: 6%;
     padding-left: 2%;
@@ -207,13 +215,12 @@ footer{
     margin-bottom: 18%;
 }
 h1{
-    margin: 0 auto;
+    margin: 0;
+    /*padding: 0 100%;*/
     text-align: center;
-    color: rgb(252, 249, 249);
+    color: white;
     font-family: corbel;
-    font-size: 50px;
-    font-weight: bold;
-    background-color: teal;
+    background-color: #1C70B0;
     justify-items: center;
     flex: auto;
 }
@@ -253,6 +260,7 @@ input{
     text-align:center;
     padding-bottom: 25px;
     padding-top: 5px;
+    color: #ffffff;
   }
 
   .btn-primary{
@@ -266,34 +274,28 @@ input{
     border: 2px solid #000;
     /*margin-left: 20px;*/
   }
-  .btn-segundary{
+  .btn-secundary{
     text-decoration: none;
     padding: 10px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
     background-color: #04811f;
+    border-color: #04811f;
     border-radius: 6px;
-    border: 2px solid #000;
     margin-left: 20px;
   }
 
-hr{
-    color: white;
-    margin: 0 auto;
-    padding: 0 auto;
-}
-
 p{
     color:white;
-    margin: 0 auto;
-    /*margin-bottom: 30px;*/
+    margin-bottom: 0px;
     padding: 15px 40px 40px;
     user-select: none;
     word-wrap: break-word;
     text-align: center;
     background: rgba(15, 15, 15, 0.6);
 }
+
 .card-con{
     box-shadow: 2px 8px 8px 2px rgba(17, 17, 17, 0.87);
     width: 50rem; 
@@ -314,31 +316,52 @@ p{
     font-family: cursive;
 }
 
-.referencias{
+#referencias{
+    font-size: 25px;
     list-style: none;
-    width: 20rem;
+    /*width: 20rem;*/
     justify-content: center;
-    
+    padding: 0;
 }
-.referencias li a {
+#referencias li a {
     text-decoration: none;
     color: #fff;
-    font-size: 30px;
+    font-size: 25px;
     justify-content: center;
 }
-.referencias li:hover {
+
+#referencias li:hover {
     background: rgb(165, 165, 165);
+    text-decoration: none;
 }
-.referencias li  {
-    border: 4px solid #fff;
+
+#referencias label{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+#referencias li {
+    border-top: 1px solid #fff;
     margin: 1px;
     text-align: center;
+    text-decoration: none;
+}
+
+#referencias ul a {
+    text-decoration: none;
 }
 
 #bt_list{
     background: none;
     border: none;
 
+}
+
+.cuenta{
+    margin: auto;
+    margin-left: -50px;
 }
 
 .login{
@@ -348,7 +371,6 @@ p{
     margin: 1rem;
     padding: 1rem;
     text-align: center;
-    margin-right: 45px;  
 }
 .card-login{
     box-shadow: 2px 8px 8px 2px rgb(14, 12, 12);
@@ -356,7 +378,6 @@ p{
     background: rgba(19, 18, 18, 0.705) ;
     margin: 100px;
     text-align: center;
-    margin-left: 128px;
     margin-top: -1px;
 }
 
@@ -427,6 +448,21 @@ p{
     background-color: #04811f;
     border-radius: 6px;
     border: 2px solid #000000;
+   
+}
+
+.btn-registro{
+    padding: 5px 5px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #000000;
+}
+
+#btn_nuevo{
+ margin-left: -25px;
 }
 
 .bottom-salir{
@@ -441,15 +477,21 @@ p{
     display: none;
 }
 
-button{
-    background: rgb(0, 0, 0, 0.6) ;
+.btn-cerrar{
+    background: #343A40;
     text-align: center;
-    margin: auto;
-    margin-top: 5px;
-    border-color: rgb(252, 40, 40);
-    border-radius: 15px;
-   
+    margin: 0;
+    /* margin-top: 5px; */
+    /* border-color: rgb(252, 40, 40); */
+    /* border-radius: 15px; */
+    color: white;
+    border: none;
+    padding-top: .5rem;
+    padding-right: 60%;
+    padding-bottom: .5rem;
+    padding-left: 0em;
 }
+
 a{
     text-decoration: none;
     color: #fff;
@@ -534,13 +576,6 @@ a{
     
 }
 
-@media (max-width:480px){
-    #login{
-        /* margin-top: 55%; */
-    }
-    
-}
-
 @media (max-width:357px){
     h4,h2, h1{
         font-size: 10vw;
@@ -553,7 +588,7 @@ a{
      font-size: 10vm;
  }
  .btn-primary , .btn-segundary{
-     display: flex;
+     /*display: flex;*/
      flex-direction: column;
      text-align: center;
      margin-right: 20px;
@@ -566,7 +601,13 @@ a{
  
 }
 
-  
+  @media (max-width:360px){
+#navbar-pre{
+    justify-items: center;
+    margin:0px 0px;
+    padding: 0px;
+}
+  }
 
 @media (max-width:340px){
     .login{
@@ -607,4 +648,111 @@ a{
     .card-login{
         margin-right: 100px;
     }
+}
+
+
+@media (min-height:730px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 139px;
+    }
+}
+
+
+@media (min-height:820px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 162px;
+    }
+}
+
+@media (min-height:665px){
+    #card1 , #card2 ,#card3 ,#card4 ,#card5 {
+        height: 150px;
+    }
+}
+
+.txt-bootbox{
+    text-align: center;
+    color: black;
+   
+}
+
+#sm-logo{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 0px;
+    padding: 0px;
+}
+
+#sm-logo-mapa{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 50px;
+    
+}
+
+#nav-sm-logo{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 5px;
+}
+
+#navbar-style{
+    padding: 1px 10px;
+    /*position: relative;*/
+}
+
+
+#btn-nuevo{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#menu-navbar{
+    border-color: #343A40;
+    color: white;
+    font-size: 1.30rem;
+    padding: 1.40rem .6rem;
+}
+
+#img-contact{
+    padding-right: 15px;
+    margin: 5px 0;
+    /*padding-bottom: 15px;*/
+}
+
+#btns-contacto{
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+#txt-label{
+    color: white;
+    font-size: 20px;
+}
+
+#btn-mas{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background:#1C70B0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:10px;
+    margin-bottom:10px;
+    border:none;
+    outline:none;
+    color:#FFF;
+    font-family:Sans-serif;
+    font-size:32px;
+    /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px */
+}
+
+#img-item{
+    margin-top: 10px;
+    border: 1px solid #fff;
+    border-radius: 1%;
 }

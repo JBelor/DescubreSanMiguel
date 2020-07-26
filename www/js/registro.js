@@ -10,7 +10,11 @@ function registrarUsuario(){
 	var apellido = document.getElementById('apellido').value;
 	var correo = document.getElementById('correo').value;
 	var contra = document.getElementById('contra').value;
-
+	console.log("ojooo gmail");
+	console.log(correo.indexOf("@gmail.com"));
+	console.log("ojooo yahoo");
+	console.log(correo.indexOf("@yahoo.com"));
+	// Validando campo Nombre y Apellido
 	if(nombre === "" || apellido === ""){
 		bootbox.alert({
 			size: "small",
@@ -19,13 +23,13 @@ function registrarUsuario(){
 		})
 		return false;
 	}
+	// Validando que el correo sea Yahoo , Gmail y Hotmail
+	 if(correo.indexOf("@yahoo.com") > 0 || correo.indexOf("@gmail.com") > 0 || correo.indexOf("@hotmail.com") > 0 || correo.indexOf("@outlook.com") > 0 ){
+		firebase.auth().createUserWithEmailAndPassword(correo, contra)
 
-	firebase.auth().createUserWithEmailAndPassword(correo, contra)
-
-	.then(function(){
-
+		.then(function(){
 		var correoUser = correo;
-
+		
 	 	firebase.database().ref("Usuarios").push({
 	        Nombre: document.getElementById('nombre').value,
 	        Apellido: document.getElementById('apellido').value,
@@ -37,10 +41,8 @@ function registrarUsuario(){
 		    closeButton: false,
 		    callback: function(){ verificar(); }
 		})
-
 		//alert(correo + " se ha registrado con exito");
 		//verificar();
-
 	})
 	.catch(function(error) {
 	  var errorCode = error.code;
@@ -52,6 +54,16 @@ function registrarUsuario(){
 		closeButton: false
 	  });
 	});
+	}else{
+		bootbox.alert({
+			size: "small",
+			message: "<h4 class='txt-bootbox'>Ingrese un Correo valido.</h4>",
+			closeButton: false
+		})
+		return false;
+
+	}
+
 }
 
 //inicio de sesion del usuario
