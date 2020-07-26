@@ -1,6 +1,8 @@
+
 const auth = firebase.auth();
 var database = firebase.database();
 var estadoUser = false;
+
 
 //registra un nuevo usuario
 function registrarUsuario(){

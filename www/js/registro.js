@@ -10,10 +10,6 @@ function registrarUsuario(){
 	var apellido = document.getElementById('apellido').value;
 	var correo = document.getElementById('correo').value;
 	var contra = document.getElementById('contra').value;
-	console.log("ojooo gmail");
-	console.log(correo.indexOf("@gmail.com"));
-	console.log("ojooo yahoo");
-	console.log(correo.indexOf("@yahoo.com"));
 	// Validando campo Nombre y Apellido
 	if(nombre === "" || apellido === ""){
 		bootbox.alert({
