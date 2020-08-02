@@ -11,10 +11,10 @@ var descripComer;
 var keys;
 
  //var ref = firebase.database().ref('Categoria').child('Comercio');
-  //var Ref = database.ref("Categorías").child("Comercio");
+  //var Ref = database.ref("Categorias").child("Comercio");
   
   storageRef = firebase.storage().ref();
-  imagenesRef = firebase.database().ref("Categorías").child("Comercio");
+  imagenesRef = firebase.database().ref("Categorias").child("Comercio");
 
 
  function subirImagen() {
@@ -182,7 +182,7 @@ var keys;
 		  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
 		  Validando 
 		  nombreImagen = imagenASubir.name;
-		   firebase.database().ref("Categorías").child("Comercio").push({
+		   firebase.database().ref("Categorias").child("Comercio").push({
 			  Nombre: document.getElementById('nombreLug').value,
 			  Descripcion: document.getElementById('descripLug').value,
 			  Telefono: document.getElementById('telLug').value,
@@ -219,7 +219,7 @@ function mostrarComercio(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -264,7 +264,7 @@ function mostrarComida(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Comida").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Comida").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -308,7 +308,7 @@ function mostrarHospedaje(){
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
-	 		firebase.database().ref("Categorías").child("Hospedaje").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Hospedaje").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -353,7 +353,7 @@ function mostrarSalud(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Salud").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Salud").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -398,7 +398,7 @@ function mostrarTurismo(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Turismo").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Turismo").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -445,7 +445,7 @@ function mostrarInfo() {
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll();
-			firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
+			firebase.database().ref('Categorias').child('Comercio').once("value").then(function(snapshot) {
 				snapshot.forEach(function(childSnapshot) { 
 						this.key = childSnapshot.key;
 						var ImgComer = childSnapshot.val().img_url;
@@ -531,7 +531,7 @@ function mostrarInfo() {
 function mostrarInfo_Comida() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Comida').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Comida').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -574,7 +574,7 @@ function mostrarInfo_Comida() {
 function mostrarInfo_Hospedaje() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Hospedaje').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Hospedaje').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -617,7 +617,7 @@ function mostrarInfo_Hospedaje() {
 function mostrarInfo_Salud() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Salud').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Salud').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -661,7 +661,7 @@ function mostrarInfo_Salud() {
 function mostrarInfo_Turismo() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Turismo').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Turismo').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
