@@ -84,7 +84,7 @@
             <div class="textbox">
                 <label class="text-input">Número de teléfono</label>
                 <i class="fa fa-user"></i>
-                <input type="number" id="telLug" placeholder="XXXX-XXXX" pattern="/^\d{4}-\d{4}$/ " maxlength="8" required> 
+                <input type="number" id="telLug" placeholder="XXXX-XXXX" pattern="/^\d{4}-\d{4}$/ "  onkeyup="countChars(this);" maxlength="8" required> 
             </div>
             <div class="textbox">
                 <label class="text-input">Número de Whatsapp</label>

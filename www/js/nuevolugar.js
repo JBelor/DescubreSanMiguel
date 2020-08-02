@@ -1,8 +1,4 @@
 
-window.addEventListener("load" , () => {
-
-})
-
 var numTel;
 
  var database = firebase.database();
@@ -29,7 +25,6 @@ var keys;
   	var imagenASubir = fichero.files[0];
 
 	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
-
 
 	uploadTask.on('state_changed', function(snapshot){
 	  //se muestra el proceso de subida de imagen
@@ -72,8 +67,17 @@ var keys;
  	})
  }
 
+//  Agregando el - en el campo numero 
+ function countChars(){
+	var digitos = document.querySelector("#telLug");
+	console.log("Escribiendo");
+	if(countChars.length = 4 ){
+		console.log("Hay 4 digitos");
+		digitos.innerHTML +='-';
+	}
+}
+ 
  function nuevoLugar(){
-
 	// Validar formulario
 	var nombre = document.querySelector("#nombreLug").value;
 	var descripcion = document.querySelector("#descripLug").value;
@@ -84,21 +88,70 @@ var keys;
 	var web = document.querySelector("#webUrlLug").value;
 	var ubi = document.querySelector("#ubicLug").value;
 	var imagen = document.querySelector("#imagen").value;
-	var RegExp_number= "/^\d{4}-\d{4}$/";
-	var RegExp_url = "(/^HTTP|HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?$/)";
-	if(nombre === "" || descripcion === "" || imagen ===""){
+	var RegExp_img = /\.(jpg|png)$/i;
+	var RegExp_url = /^(ftp|http|https):\/\/[^ "]+$/;
+	// Validando que todos los campos este llenos 
+	if(nombre === "" || descripcion === "" || imagen ==="" || ubi ==="" || telefono ==="" || wha ==="" || fc ==="" || insta ==="" || web ===""){
 		bootbox.alert({
 			size: "small",
 		    message: "<h4 class='txt-bootbox'>Todos los campos son requeridos</h4>",
 		    closeButton: false,
 		})
-	}else{
+	}//Aqui validare Imagenes , Url y telefono
+		// Validando telefono 
+	 else if(telefono.length > 8 || telefono.length < 8){
+		bootbox.alert({
+			size: "small",
+			message: "<h4 class='txt-bootbox'>El <strong>telefono</strong> debe tener 8 digitos</h4>",
+			closeButton: false,
+		})
+	}
+	// Validando whatsapp
+	else if(wha.length > 8 || wha.length < 8){
+		bootbox.alert({
+			size: "small",
+			message: "<h4 class='txt-bootbox'>El <strong>Whatsapp</strong> debe tener 8 digitos</h4>",
+			closeButton: false,
+		})
+	}
+			// Validando URL facebook
+		else if(RegExp_url.test(fc) == false){
+			bootbox.alert({
+				size: "small",
+				message: "<h4 class='txt-bootbox'>La URL del campo <strong>FACEBOOK</strong> es incorrecto</h4>",
+				closeButton: false,
+			})
+			// Validando URL instagram
+		}else if(RegExp_url.test(insta) == false){
+			bootbox.alert({
+				size: "small",
+				message: "<h4 class='txt-bootbox'>La URL del campo <strong>INSTAGRAM</strong> es incorrecto</h4>",
+				closeButton: false,
+			})
+		}
+			// Validando URL web
+		else if(RegExp_url.test(web) == false){
+			bootbox.alert({
+				size: "small",
+				message: "<h4 class='txt-bootbox'>La URL del campo <strong>WEB</strong> es incorrecto</h4>",
+				closeButton: false,
+			})
+		}
+			// Validando URL imagen
+		else if(RegExp_img.test(imagen) == false){
+			bootbox.alert({
+				size: "small",
+				message: "<h4 class='txt-bootbox'>La imagen debe ser <strong>.jpg</strong> o <strong>.png</strong></h4>",
+				closeButton: false,
+			})
+		}
+	
+		else{
+			// Si todo esta correcto se hace el PUSH a la DB 
 		//subirImagen();
 		fichero = document.getElementById("imagen");
 		fichero.addEventListener("change", subirImagen, false);
-  
 		var imagenASubir = fichero.files[0];
-  
 	  	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
   
 	  uploadTask.on('state_changed', function(snapshot){
@@ -127,7 +180,7 @@ var keys;
 		  console.log('Enlace de la imagen: ', downloadURL);
   
 		  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
-		  
+		  Validando 
 		  nombreImagen = imagenASubir.name;
 		   firebase.database().ref("Categorías").child("Comercio").push({
 			  Nombre: document.getElementById('nombreLug').value,
@@ -150,10 +203,9 @@ var keys;
 		  })
 		});
 	  });
-	}
-
-		
+	}	
  }
+
 
 // <--------------- Todas las Card de la Categoria Comercio ------------>
 function mostrarComercio(){
