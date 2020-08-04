@@ -1,8 +1,4 @@
 
-window.addEventListener("load" , () => {
-
-})
-
 var numTel;
 
  var database = firebase.database();
@@ -15,10 +11,10 @@ var descripComer;
 var keys;
 
  //var ref = firebase.database().ref('Categoria').child('Comercio');
-  //var Ref = database.ref("Categorías").child("Comercio");
+  //var Ref = database.ref("Categorias").child("Comercio");
   
   storageRef = firebase.storage().ref();
-  imagenesRef = firebase.database().ref("Categorías").child("Comercio");
+  imagenesRef = firebase.database().ref("Categorias").child("Comercio");
 
 
  function subirImagen() {
@@ -29,7 +25,6 @@ var keys;
   	var imagenASubir = fichero.files[0];
 
 	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
-
 
 	uploadTask.on('state_changed', function(snapshot){
 	  //se muestra el proceso de subida de imagen
@@ -72,8 +67,19 @@ var keys;
  	})
  }
 
- function nuevoLugar(){
+//  Agregando el - en el campo numero 
+//  function countChars(){
+// 	var digitos = document.querySelector("#telLug");
+// 	console.log("Escribiendo");
+// 	if(countChars.length = 4 ){
+// 		console.log("Hay 4 digitos");
+// 		digitos.innerHTML +='-';
 
+// esto en el html onkeyup="countChars(this);"
+// 	}
+// }
+ 
+ function nuevoLugar(){
 	// Validar formulario
 	var nombre = document.querySelector("#nombreLug").value;
 	var descripcion = document.querySelector("#descripLug").value;
@@ -84,76 +90,143 @@ var keys;
 	var web = document.querySelector("#webUrlLug").value;
 	var ubi = document.querySelector("#ubicLug").value;
 	var imagen = document.querySelector("#imagen").value;
-	var RegExp_number= "/^\d{4}-\d{4}$/";
-	var RegExp_url = "(/^HTTP|HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?$/)";
-	if(nombre === "" || descripcion === "" || imagen ===""){
+	var RegExp_img = /\.(jpg|png)$/i;
+	var RegExp_url = /^(ftp|http|https):\/\/[^ "]+$/;
+	var RegExp_gps = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/;
+	// Validando que todos los campos requeridos este llenos 
+	if(nombre === ""){
 		bootbox.alert({
 			size: "small",
-		    message: "<h4 class='txt-bootbox'>Todos los campos son requeridos</h4>",
+		    message: "<h4 class='txt-bootbox'>El campo <strong>Nombre</strong> es requerido</h4>",
 		    closeButton: false,
 		})
-	}else{
-		//subirImagen();
-		fichero = document.getElementById("imagen");
-		fichero.addEventListener("change", subirImagen, false);
-  
-		var imagenASubir = fichero.files[0];
-  
-	  	var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
-  
-	  uploadTask.on('state_changed', function(snapshot){
-		//se muestra el proceso de subida de imagen
-		var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-		console.log('Upload is ' + progress + '% done');
-		switch (snapshot.state) {
-		  case firebase.storage.TaskState.PAUSED: // or 'paused'
-			console.log('Upload is paused');
-			break;
-		  case firebase.storage.TaskState.RUNNING: // or 'running'
-			console.log('Upload is running');
-			break;
-		}
-	  }, function(error) {
-		//gestionar errores
+	}else if( descripcion === ""){
 		bootbox.alert({
-		  size: "small",
-		  message: "<h4 class='txt-bootbox'>Se produjo un error</h4>",
-		  closeButton: false
+			size: "small",
+		    message: "<h4 class='txt-bootbox'>El campo <strong>Descripcion</strong> es requerido</h4>",
+		    closeButton: false,
 		})
-		//alert("Se produjo un error");
-	  }, function() {
-		//subida exitosa de la imagen
-		uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-		  console.log('Enlace de la imagen: ', downloadURL);
-  
-		  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
-		  
-		  nombreImagen = imagenASubir.name;
-		   firebase.database().ref("Categorías").child("Comercio").push({
-			  Nombre: document.getElementById('nombreLug').value,
-			  Descripcion: document.getElementById('descripLug').value,
-			  Telefono: document.getElementById('telLug').value,
-			  Whatsapp: document.getElementById('whatsLug').value,
-			  Facebook: document.getElementById('fbUrlLug').value,
-			  Instagram: document.getElementById('instaUrlLug').value,
-			  Web: document.getElementById('webUrlLug').value,
-			  Ubicacion: document.getElementById('ubicLug').value,
-			  Imagenes: nombreImagen,
-			  img_url: downloadURL
-			});
-			//alert("Nuevo sitio registrado correctamente");
-			bootbox.alert({
-			  size: "small",
-			  message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
-			  closeButton: false,
-			  callback: function(){ aComercio(); }
-		  })
-		});
-	  });
-	}
-
-		
- }
+	}else if(telefono ===""){
+		bootbox.alert({
+			size: "small",
+		    message: "<h4 class='txt-bootbox'>El campo <strong>Telefono</strong> es requerido</h4>",
+		    closeButton: false,
+		})
+	}else if( ubi.length < 0){
+		bootbox.alert({
+			size: "small",
+		    message: "<h4 class='txt-bootbox'>El campo <strong>Ubicacion</strong> es requerido</h4>",
+		    closeButton: false,
+		})
+	}else if(imagen ==="" ){
+		bootbox.alert({
+			size: "small",
+		    message: "<h4 class='txt-bootbox'>El campo <strong>Imagen</strong> es requerido</h4>",
+		    closeButton: false,
+		})
+	}else if(telefono != "" && telefono.length > 8 || telefono.length < 8){
+			bootbox.alert({ //Validando el campo Telefono
+				size: "small",
+				message: "<h4 class='txt-bootbox'>El <strong>telefono</strong> debe tener 8 digitos</h4>",
+				closeButton: false,
+			})
+	 }else if(wha != "" && wha.length > 8 || wha.length < 8){
+				bootbox.alert({ //Validando el campo Whatsapp
+					size: "small",
+					message: "<h4 class='txt-bootbox'>El <strong>Whatsapp</strong> debe tener 8 digitos</h4>",
+					closeButton: false,
+				})
+		}else if(fc != "" && RegExp_url.test(fc) == false){
+					bootbox.alert({ //Validando el campo Facebook
+						size: "small",
+						message: "<h4 class='txt-bootbox'>La URL del campo <strong>FACEBOOK</strong> es incorrecto</h4>",
+						closeButton: false,
+					})
+			}else if(insta != "" && RegExp_url.test(insta) == false){
+						bootbox.alert({	//Validando el campo Instagram
+							size: "small",
+							message: "<h4 class='txt-bootbox'>La URL del campo <strong>INSTAGRAM</strong> es incorrecto</h4>",
+							closeButton: false,
+						})
+				}else if(web != "" && RegExp_url.test(web) == false){
+							bootbox.alert({	//Validando el campo Web
+								size: "small",
+								message: "<h4 class='txt-bootbox'>La URL del campo <strong>WEB</strong> es incorrecto</h4>",
+								closeButton: false,
+							})	
+					}else if(ubi != "" && RegExp_gps.test(ubi) == false){
+						bootbox.alert({	//Validando el campo Web
+							size: "small",
+							message: "<h4 class='txt-bootbox'>La coordenada del campo <strong>UBICACION</strong> es incorrecto</h4>",
+							closeButton: false,
+						})	
+					}else if(imagen != "" && RegExp_img.test(imagen) == false){
+								bootbox.alert({	//Validando el campo Imagen
+									size: "small",
+									message: "<h4 class='txt-bootbox'>La imagen debe ser <strong>.jpg</strong> o <strong>.png</strong></h4>",
+									closeButton: false,
+								})
+							}
+							else{
+								// Si todo esta correcto se hace el PUSH a la DB 
+							//subirImagen();
+							fichero = document.getElementById("imagen");
+							fichero.addEventListener("change", subirImagen, false);
+							var imagenASubir = fichero.files[0];
+							  var uploadTask = storageRef.child('Imagenes/' + imagenASubir.name).put(imagenASubir);
+					  
+						  uploadTask.on('state_changed', function(snapshot){
+							//se muestra el proceso de subida de imagen
+							var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+							console.log('Upload is ' + progress + '% done');
+							switch (snapshot.state) {
+							  case firebase.storage.TaskState.PAUSED: // or 'paused'
+								console.log('Upload is paused');
+								break;
+							  case firebase.storage.TaskState.RUNNING: // or 'running'
+								console.log('Upload is running');
+								break;
+							}
+						  }, function(error) {
+							//gestionar errores
+							bootbox.alert({
+							  size: "small",
+							  message: "<h4 class='txt-bootbox'>Se produjo un error</h4>",
+							  closeButton: false
+							})
+							//alert("Se produjo un error");
+						  }, function() {
+							//subida exitosa de la imagen
+							uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+							  console.log('Enlace de la imagen: ', downloadURL);
+					  
+							  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
+							  Validando 
+							  nombreImagen = imagenASubir.name;
+							   firebase.database().ref("Categorías").child("Comercio").push({
+								  Nombre: document.getElementById('nombreLug').value,
+								  Descripcion: document.getElementById('descripLug').value,
+								  Telefono: document.getElementById('telLug').value,
+								  Whatsapp: document.getElementById('whatsLug').value,
+								  Facebook: document.getElementById('fbUrlLug').value,
+								  Instagram: document.getElementById('instaUrlLug').value,
+								  Web: document.getElementById('webUrlLug').value,
+								  Ubicacion: document.getElementById('ubicLug').value,
+								  Imagenes: nombreImagen,
+								  img_url: downloadURL
+								});
+								//alert("Nuevo sitio registrado correctamente");
+								bootbox.alert({
+								  size: "small",
+								  message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
+								  closeButton: false,
+								  callback: function(){ aComercio(); }
+							  })
+							});
+						  });
+						}
+					////
+					} //Aqui termina la funcion
 
 // <--------------- Todas las Card de la Categoria Comercio ------------>
 function mostrarComercio(){
@@ -167,7 +240,7 @@ function mostrarComercio(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -190,7 +263,7 @@ function mostrarComercio(){
 	 		'</p>'
 			 );
 	 		$("#comercio_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -212,7 +285,7 @@ function mostrarComida(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Comida").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Comida").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -256,7 +329,7 @@ function mostrarHospedaje(){
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
-	 		firebase.database().ref("Categorías").child("Hospedaje").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Hospedaje").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -301,7 +374,7 @@ function mostrarSalud(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Salud").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Salud").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -346,7 +419,7 @@ function mostrarTurismo(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorías").child("Turismo").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child("Turismo").orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -393,7 +466,7 @@ function mostrarInfo() {
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll();
-			firebase.database().ref('Categorías').child('Comercio').once("value").then(function(snapshot) {
+			firebase.database().ref('Categorias').child('Comercio').once("value").then(function(snapshot) {
 				snapshot.forEach(function(childSnapshot) { 
 						this.key = childSnapshot.key;
 						var ImgComer = childSnapshot.val().img_url;
@@ -479,7 +552,7 @@ function mostrarInfo() {
 function mostrarInfo_Comida() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Comida').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Comida').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -522,7 +595,7 @@ function mostrarInfo_Comida() {
 function mostrarInfo_Hospedaje() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Hospedaje').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Hospedaje').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -565,7 +638,7 @@ function mostrarInfo_Hospedaje() {
 function mostrarInfo_Salud() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Salud').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Salud').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
@@ -609,7 +682,7 @@ function mostrarInfo_Salud() {
 function mostrarInfo_Turismo() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
-	firebase.database().ref('Categorías').child('Turismo').once("value").then(function(snapshot) {
+	firebase.database().ref('Categorias').child('Turismo').once("value").then(function(snapshot) {
 		snapshot.forEach(function(childSnapshot) { 
 				this.key = childSnapshot.key;
 				var ImgComer = childSnapshot.val().img_url;
