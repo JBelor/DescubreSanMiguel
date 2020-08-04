@@ -271,7 +271,7 @@ input{
     color: #ffffff;
     background-color: #1883ba;
     border-radius: 6px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     /*margin-left: 20px;*/
   }
   .btn-secundary{
@@ -498,6 +498,95 @@ a{
 }
 
 
+
+.txt-bootbox{
+    text-align: center;
+    color: black;
+   
+}
+
+#sm-logo{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 0px;
+    padding: 0px;
+}
+
+#sm-logo-mapa{
+    color: white;
+    font-family: Srabi Script;
+    font-size: 35px;
+    margin-right: 50px;
+    
+}
+
+#nav-sm-logo{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 5px;
+}
+
+#navbar-style{
+    padding: 1px 10px;
+    /*position: relative;*/
+}
+
+
+#btn-nuevo{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+#menu-navbar{
+    border-color: #343A40;
+    color: white;
+    font-size: 1.30rem;
+    padding: 1.40rem .6rem;
+}
+
+#img-contact{
+    padding-right: 15px;
+    margin: 5px 0;
+    /*padding-bottom: 15px;*/
+}
+
+#btns-contacto{
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+#txt-label{
+    color: white;
+    font-size: 20px;
+}
+
+#btn-mas{
+    width:50px;
+    height:50px;
+    border-radius:100%;
+    background:#1C70B0;
+    right:0;
+    bottom:0;
+    position:fixed;
+    margin-right:10px;
+    margin-bottom:10px;
+    border:none;
+    outline:none;
+    color:#FFF;
+    font-family:Sans-serif;
+    font-size:32px;
+    /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px */
+}
+
+#img-item{
+    margin-top: 10px;
+    border: 1px solid #fff;
+    border-radius: 1%;
+}
+
+
 @media (max-width:768px){
 
     header{
@@ -648,7 +737,29 @@ a{
     .card-login{
         margin-right: 100px;
     }
+    #iniciar{
+       margin-left: -15px;
+    }
 }
+@media(max-width:285px){
+    #sm-logo{
+        font-size: 30px;
+        margin-left: -20px;
+    }
+}
+@media(max-width:270px){
+    #sm-logo{
+        font-size: 15;
+        margin-left: -15px;
+    }
+}
+@media(max-width:250px){
+    #sm-logo{
+        font-size: 20px;
+        margin-left: -19px;
+    }
+}
+
 
 
 @media (min-height:730px){
@@ -668,91 +779,4 @@ a{
     #card1 , #card2 ,#card3 ,#card4 ,#card5 {
         height: 150px;
     }
-}
-
-.txt-bootbox{
-    text-align: center;
-    color: black;
-   
-}
-
-#sm-logo{
-    color: white;
-    font-family: Srabi Script;
-    font-size: 35px;
-    margin-right: 0px;
-    padding: 0px;
-}
-
-#sm-logo-mapa{
-    color: white;
-    font-family: Srabi Script;
-    font-size: 35px;
-    margin-right: 50px;
-    
-}
-
-#nav-sm-logo{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-right: 5px;
-}
-
-#navbar-style{
-    padding: 1px 10px;
-    /*position: relative;*/
-}
-
-
-#btn-nuevo{
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-#menu-navbar{
-    border-color: #343A40;
-    color: white;
-    font-size: 1.30rem;
-    padding: 1.40rem .6rem;
-}
-
-#img-contact{
-    padding-right: 15px;
-    margin: 5px 0;
-    /*padding-bottom: 15px;*/
-}
-
-#btns-contacto{
-    background: none;
-    padding: 0;
-    border: none;
-}
-
-#txt-label{
-    color: white;
-    font-size: 20px;
-}
-
-#btn-mas{
-    width:50px;
-    height:50px;
-    border-radius:100%;
-    background:#1C70B0;
-    right:0;
-    bottom:0;
-    position:fixed;
-    margin-right:10px;
-    margin-bottom:10px;
-    border:none;
-    outline:none;
-    color:#FFF;
-    font-family:Sans-serif;
-    font-size:32px;
-    /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px */
-}
-
-#img-item{
-    margin-top: 10px;
-    border: 1px solid #fff;
-    border-radius: 1%;
 }

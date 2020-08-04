@@ -92,6 +92,7 @@ var keys;
 	var imagen = document.querySelector("#imagen").value;
 	var RegExp_img = /\.(jpg|png)$/i;
 	var RegExp_url = /^(ftp|http|https):\/\/[^ "]+$/;
+	var RegExp_gps = /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/;
 	// Validando que todos los campos requeridos este llenos 
 	if(nombre === ""){
 		bootbox.alert({
@@ -111,7 +112,7 @@ var keys;
 		    message: "<h4 class='txt-bootbox'>El campo <strong>Telefono</strong> es requerido</h4>",
 		    closeButton: false,
 		})
-	}else if( ubi ===""){
+	}else if( ubi.length < 0){
 		bootbox.alert({
 			size: "small",
 		    message: "<h4 class='txt-bootbox'>El campo <strong>Ubicacion</strong> es requerido</h4>",
@@ -153,6 +154,12 @@ var keys;
 								message: "<h4 class='txt-bootbox'>La URL del campo <strong>WEB</strong> es incorrecto</h4>",
 								closeButton: false,
 							})	
+					}else if(ubi != "" && RegExp_gps.test(ubi) == false){
+						bootbox.alert({	//Validando el campo Web
+							size: "small",
+							message: "<h4 class='txt-bootbox'>La coordenada del campo <strong>UBICACION</strong> es incorrecto</h4>",
+							closeButton: false,
+						})	
 					}else if(imagen != "" && RegExp_img.test(imagen) == false){
 								bootbox.alert({	//Validando el campo Imagen
 									size: "small",
@@ -256,7 +263,7 @@ function mostrarComercio(){
 	 		'</p>'
 			 );
 	 		$("#comercio_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
