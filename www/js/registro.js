@@ -180,7 +180,6 @@ function confirmCerrar(){
         }
     }
 	});
-
 }
 
 //cierra sesion del usuario
@@ -206,10 +205,41 @@ function verifBotoncerrar(){
 
 }
 
+function verifEstadoComercio(){
+	if(estadoUser == false){
+		bootbox.confirm({
+	    message: "<h4 class='txt-bootbox'>Para agregar un nuevo comercio tienes que iniciar sesión</h4>",
+	    buttons: {
+	        confirm: {
+	            label: 'Inicia Sesión',
+	            className: 'btn-primary'
+	        },
+	        cancel: {
+	            label: 'Ahora no',
+	            className: 'btn-danger'
+	        }
+	    },
+	    callback: function (result) {
+	        if (result==true) {
+	        	alogin();
+	        }else{
+	        	bootbox.hideAll();
+	        }
+	    }
+		});
+	}else{
+		aNuevoComercio();
+	}
+}
+
 function apaginaprincipal(){
   location.href="principal.html";
 } 
 
 function alogin(){
 	location.href="login.html";
+}
+
+function aNuevoComercio(){
+	location.href="nuevolugar.html"
 }
