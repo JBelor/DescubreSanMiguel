@@ -1,4 +1,3 @@
-
 var numTel;
 
  var database = firebase.database();
@@ -67,6 +66,7 @@ var keys;
  	})
  }
  
+ //Formulario para agregar un nuevo lugar segun la categoria
  function nuevoLugar(){
 	// Validar formulario
 	var nombre = document.querySelector("#nombreLug").value;
@@ -189,7 +189,7 @@ var keys;
 								  console.log('Enlace de la imagen: ', downloadURL);
 								  //crearNodoEnBDFirebase(imagenASubir.name, downloadURL);
 								  nombreImagen = imagenASubir.name;
-								   firebase.database().ref("Categorias").child("Comercio").push({
+								   firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).push({
 									  Nombre: document.getElementById('nombreLug').value,
 									  Descripcion: document.getElementById('descripLug').value,
 									  Telefono: document.getElementById('telLug').value,
@@ -206,7 +206,28 @@ var keys;
 									  size: "small",
 									  message: "<h4 class='txt-bootbox'>Nuevo sitio registrado correctamente</h4>",
 									  closeButton: false,
-									  callback: function(){ aComercio(); }
+									  callback: function(){ 
+									  	//Funcion para redireccionar segun la categoria
+									  	switch(sessionStorage.getItem("categoriaNom")){
+									  		case "Comercio":
+									  			aComercio();
+									  			break;
+									  		case "Comida":
+									  			aComida();
+									  			break;
+									  		case "Hospedaje":
+									  			aHospedaje();
+									  			break;
+									  		case "Salud":
+									  			aSalud();
+									  			break;
+									  		case "Turismo":
+									  			aTurismo();
+									  			break;
+									  		default:
+									  			break;
+									  	}
+									  }
 								  })
 								});
 							  });
@@ -215,6 +236,9 @@ var keys;
 
 // <--------------- Todas las Card de la Categoria Comercio ------------>
 function mostrarComercio(){
+	//categoriaNom = "Comercio";
+	sessionStorage.setItem("categoriaNom", "Comercio");
+	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
     title: 'Por favor espera',
@@ -225,7 +249,7 @@ function mostrarComercio(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorias").child("Comercio").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
@@ -260,6 +284,8 @@ function mostrarComercio(){
 
 //<------------- Todas las Card de la Categoria Comida -------------->
 function mostrarComida(){
+	sessionStorage.setItem("categoriaNom", "Comida");
+	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
     title: 'Por favor espera',
@@ -270,30 +296,30 @@ function mostrarComida(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorias").child("Comida").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
-	 			var ImgComer = childSnapshot.val().img_url;
-	 			var nombreComer = childSnapshot.val().Nombre;
-			 	var descripComer = childSnapshot.val().Descripcion;
+	 			var ImgComida = childSnapshot.val().img_url;
+	 			var nombreComida = childSnapshot.val().Nombre;
+			 	var descripComida = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#comida_item").append(
 	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgComer +
+	 		+ ImgComida +
 	 		'"/>'
 	 		);
 	 		$("#comida_item").append(
 	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreComer
+	 		+ nombreComida
 	 		);
 	 		$("#comida_item").append(
 	 		'</h4><p>'
-	 		+ descripComer +
+	 		+ descripComida +
 	 		'</p>'
 			 );
 	 		$("#comida_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo2()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap1()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -305,6 +331,8 @@ function mostrarComida(){
 
 //<------------- Todas las Card de la Categoria Hospedaje -------------->
 function mostrarHospedaje(){
+	sessionStorage.setItem("categoriaNom", "Hospedaje");
+	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
     title: 'Por favor espera',
@@ -314,30 +342,30 @@ function mostrarHospedaje(){
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
-	 		firebase.database().ref("Categorias").child("Hospedaje").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
-	 			var ImgComer = childSnapshot.val().img_url;
-	 			var nombreComer = childSnapshot.val().Nombre;
-			 	var descripComer = childSnapshot.val().Descripcion;
+	 			var ImgHospe = childSnapshot.val().img_url;
+	 			var nombreHospe = childSnapshot.val().Nombre;
+			 	var descripHospe = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#hospedaje_item").append(
 	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgComer +
+	 		+ ImgHospe +
 	 		'"/>'
 	 		);
 	 		$("#hospedaje_item").append(
 	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreComer
+	 		+ nombreHospe
 	 		);
 	 		$("#hospedaje_item").append(
 	 		'</h4><p>'
-	 		+ descripComer +
+	 		+ descripHospe +
 	 		'</p>'
 			 );
 	 		$("#hospedaje_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo3()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap2()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -349,6 +377,8 @@ function mostrarHospedaje(){
 
 //<------------- Todas las Card de la Categoria Salud -------------->
 function mostrarSalud(){
+	sessionStorage.setItem("categoriaNom", "Salud");
+	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
     title: 'Por favor espera',
@@ -359,30 +389,30 @@ function mostrarSalud(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorias").child("Salud").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
-	 			var ImgComer = childSnapshot.val().img_url;
-	 			var nombreComer = childSnapshot.val().Nombre;
-			 	var descripComer = childSnapshot.val().Descripcion;
+	 			var ImgSalud = childSnapshot.val().img_url;
+	 			var nombreSalud = childSnapshot.val().Nombre;
+			 	var descripSalud = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#salud_item").append(
 	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgComer +
+	 		+ ImgSalud +
 	 		'"/>'
 	 		);
 	 		$("#salud_item").append(
 	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreComer
+	 		+ nombreSalud
 	 		);
 	 		$("#salud_item").append(
 	 		'</h4><p>'
-	 		+ descripComer +
+	 		+ descripSalud +
 	 		'</p>'
 			 );
 	 		$("#salud_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo4()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap3()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -394,6 +424,8 @@ function mostrarSalud(){
 
 //<------------- Todas las Card de la Categoria Turismo -------------->
 function mostrarTurismo(){
+	sessionStorage.setItem("categoriaNom", "Turismo");
+	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
     title: 'Por favor espera',
@@ -404,30 +436,30 @@ function mostrarTurismo(){
 	    setTimeout(function(){
 	        bootbox.hideAll(); 
 	    
-	 		firebase.database().ref("Categorias").child("Turismo").orderByKey().once("value").then(function(snapshot) { 
+	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
 	 		snapshot.forEach(function(childSnapshot) { 
 	 		//key es el id de cada registro
 			    this.key = childSnapshot.key;
-	 			var ImgComer = childSnapshot.val().img_url;
-	 			var nombreComer = childSnapshot.val().Nombre;
-			 	var descripComer = childSnapshot.val().Descripcion;
+	 			var ImgTurismo = childSnapshot.val().img_url;
+	 			var nombreTuris = childSnapshot.val().Nombre;
+			 	var descripTuris = childSnapshot.val().Descripcion;
 			 	var gps = childSnapshot.val().Ubicacion;
 	 		$("#turismo_item").append(
 	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgComer +
+	 		+ ImgTurismo +
 	 		'"/>'
 	 		);
 	 		$("#turismo_item").append(
 	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreComer
+	 		+ nombreTuris
 	 		);
 	 		$("#turismo_item").append(
 	 		'</h4><p>'
-	 		+ descripComer +
+	 		+ descripTuris +
 	 		'</p>'
 			 );
 	 		$("#turismo_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo5()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap4()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -438,7 +470,7 @@ function mostrarTurismo(){
 }
 
 //                           Informacion 
-// <<<<<<<<  Mostrando informacion de Comercio >>>>>>>>>>
+// <<<<<<<<  Mostrando informacion segun categoria seleccionada >>>>>>>>>>
 function mostrarInfo() {
 	var ob_key = sessionStorage.getItem("key");
 	console.log(ob_key);
@@ -451,12 +483,12 @@ function mostrarInfo() {
 	dialog.init(function(){
 	    setTimeout(function(){
 	        bootbox.hideAll();
-			firebase.database().ref('Categorias').child('Comercio').once("value").then(function(snapshot) {
+			firebase.database().ref('Categorias').child(sessionStorage.getItem("categoriaNom")).once("value").then(function(snapshot) {
 				snapshot.forEach(function(childSnapshot) { 
 						this.key = childSnapshot.key;
-						var ImgComer = childSnapshot.val().img_url;
-						var nombreComer = childSnapshot.val().Nombre;
-						var descripComer = childSnapshot.val().Descripcion;
+						var ImgLugar = childSnapshot.val().img_url;
+						var nombreLugar = childSnapshot.val().Nombre;
+						var descripLugar = childSnapshot.val().Descripcion;
 						var tel  = childSnapshot.val().Telefono;
 						var whats  = childSnapshot.val().Whatsapp;
 						var face  = childSnapshot.val().Facebook;
@@ -466,24 +498,18 @@ function mostrarInfo() {
 						if(key == ob_key){
 							$("#comercio_item").append(
 								'<div class="card"><img width="100%" heigth="80%" src="'
-								+ ImgComer +
+								+ ImgLugar +
 								'"/>'
 								);	
 								$("#comercio_item").append(
 								'<div class="container" id="comercio_nombre"><h4>'
-								+ nombreComer
+								+ nombreLugar
 								);
 								$("#comercio_item").append(
 								'</h4><p id="text-info">'
-								+ descripComer+
+								+ descripLugar+
 								'</p>'
 								);
-								$("#comercio_item").append(
-									'</h4><p id="text-info"> Telefono: '
-									  + tel +
-									'</p>'
-								);
-								
 								if(face !== ""){
 									$("#comercio_item").append(
 									'<ul class="container" id="referencias"><a href="'
@@ -493,7 +519,7 @@ function mostrarInfo() {
 								}
 								if(whats !== ""){
 									$("#comercio_item").append(
-									'<ul class="container" id="referencias"><a href="https://api.whatsapp.com/send?phone='
+									'<ul class="container" id="referencias"><a href="https://api.whatsapp.com/send?phone=503'
 									+ whats +
 									'"><li><img id="img-contact" src="img/whatsapp.png" width="15%"><label>Whatsapp</label></li></a></ul>'
 									);
@@ -533,213 +559,26 @@ function mostrarInfo() {
 	});
 }
 
-// <<<<<<<<  Mostrando informacion de Comida>>>>>>>>>>
-function mostrarInfo_Comida() {
-	var ob_key = sessionStorage.getItem("key");
-	console.log(ob_key);
-	firebase.database().ref('Categorias').child('Comida').once("value").then(function(snapshot) {
-		snapshot.forEach(function(childSnapshot) { 
-				this.key = childSnapshot.key;
-				var ImgComer = childSnapshot.val().img_url;
-				var nombreComer = childSnapshot.val().Nombre;
-				var descripComer = childSnapshot.val().Descripcion;
-				var cel  = childSnapshot.val().Telefono;
-				var gps = childSnapshot.val().Ubicacion;
-				if(key == ob_key){
-					$("#comida_item").append(
-						'<div class="card"><img width="100%" heigth="80%" src="'
-						+ ImgComer +
-						'"/>'
-						);	
-						$("#comida_item").append(
-						'<div class="container" id="comercio_nombre"><h4>'
-						+ nombreComer
-						);
-						$("#comida_item").append(
-						'</h4><hr><p class="text-info">'
-						+ descripComer+
-						'</p>'
-						);
-						$("#comida_item").append(
-							'</h4><hr><p class="text-info"> Telefono : '
-							  + cel +
-							'</p>'
-							);
-						$("#comida_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap1()">Iniciar ruta</button></a></li></ul></br>'
-						);
 
-						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
-				}
-	});
-	}, function (errorObject) {
-	   console.log("The read failed: " + errorObject.code);
-   });
-}
-// <<<<<<<<  Mostrando informacion de Hospedaje >>>>>>>>>>
-function mostrarInfo_Hospedaje() {
-	var ob_key = sessionStorage.getItem("key");
-	console.log(ob_key);
-	firebase.database().ref('Categorias').child('Hospedaje').once("value").then(function(snapshot) {
-		snapshot.forEach(function(childSnapshot) { 
-				this.key = childSnapshot.key;
-				var ImgComer = childSnapshot.val().img_url;
-				var nombreComer = childSnapshot.val().Nombre;
-				var descripComer = childSnapshot.val().Descripcion;
-				var cel  = childSnapshot.val().Telefono;
-				var gps = childSnapshot.val().Ubicacion;
-				if(key == ob_key){
-					$("#hospedaje_item").append(
-						'<div class="card"><img width="100%" heigth="80%" src="'
-						+ ImgComer +
-						'"/>'
-						);	
-						$("#hospedaje_item").append(
-						'<div class="container" id="comercio_nombre"><h4>'
-						+ nombreComer
-						);
-						$("#hospedaje_item").append(
-						'</h4><hr><p class="text-info">'
-						+ descripComer+
-						'</p>'
-						);
-						$("#hospedaje_item").append(
-							'</h4><hr><p class="text-info"> Telefono : '
-							  + cel +
-							'</p>'
-							);
-						$("#hospedaje_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap2()">Iniciar ruta</button></a></li></ul></br>'
-						);
-
-						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
-				}
-	});
-	}, function (errorObject) {
-	   console.log("The read failed: " + errorObject.code);
-   });
-}
-// <<<<<<<<  Mostrando informacion de Salud >>>>>>>>>>
-function mostrarInfo_Salud() {
-	var ob_key = sessionStorage.getItem("key");
-	console.log(ob_key);
-	firebase.database().ref('Categorias').child('Salud').once("value").then(function(snapshot) {
-		snapshot.forEach(function(childSnapshot) { 
-				this.key = childSnapshot.key;
-				var ImgComer = childSnapshot.val().img_url;
-				var nombreComer = childSnapshot.val().Nombre;
-				var descripComer = childSnapshot.val().Descripcion;
-				var cel  = childSnapshot.val().Telefono;
-				var gps = childSnapshot.val().Ubicacion;
-				if(key == ob_key){
-					$("#salud_item").append(
-						'<div class="card"><img width="100%" heigth="80%" src="'
-						+ ImgComer +
-						'"/>'
-						);	
-						$("#salud_item").append(
-						'<div class="container" id="comercio_nombre"><h4>'
-						+ nombreComer
-						);
-						$("#salud_item").append(
-						'</h4><hr><p class="text-info">'
-						+ descripComer+
-						'</p>'
-						);
-						$("#salud_item").append(
-							'</h4><hr><p class="text-info"> Telefono : '
-							  + cel +
-							'</p>'
-							);
-						$("#salud_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap3()">Iniciar ruta</button></a></li></ul></br>'
-						);
-
-						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
-				}
-	});
-	}, function (errorObject) {
-	   console.log("The read failed: " + errorObject.code);
-   });
-}
-
-// <<<<<<<<  Mostrando informacion de Turismo >>>>>>>>>>
-function mostrarInfo_Turismo() {
-	var ob_key = sessionStorage.getItem("key");
-	console.log(ob_key);
-	firebase.database().ref('Categorias').child('Turismo').once("value").then(function(snapshot) {
-		snapshot.forEach(function(childSnapshot) { 
-				this.key = childSnapshot.key;
-				var ImgComer = childSnapshot.val().img_url;
-				var nombreComer = childSnapshot.val().Nombre;
-				var descripComer = childSnapshot.val().Descripcion;
-				var cel  = childSnapshot.val().Telefono;
-				var gps = childSnapshot.val().Ubicacion;
-				if(key == ob_key){
-					$("#turismo_item").append(
-						'<div class="card"><img width="100%" heigth="80%" src="'
-						+ ImgComer +
-						'"/>'
-						);	
-						$("#turismo_item").append(
-						'<div class="container" id="comercio_nombre"><h4>'
-						+ nombreComer
-						);
-						$("#turismo_item").append(
-						'</h4><hr><p class="text-info">'
-						+ descripComer+
-						'</p>'
-						);
-						$("#turismo_item").append(
-							'</h4><hr><p class="text-info"> Telefono : '
-							  + cel +
-							'</p>'
-							);
-						$("#turismo_item").append(
-						'<ul class="referencias"><li><a href="https://www.facebook.com/">Facebook</a></li><li><a href="https://www.instagram.com/">Instagram</a></li><li><a <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap4()">Iniciar ruta</button></a></li></ul></br>'
-						);
-
-						// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>
-				}
-	});
-	}, function (errorObject) {
-	   console.log("The read failed: " + errorObject.code);
-   });
-}
 
 function aInfo(){
 	location.href="informacion.html";
 }
-function aInfo2(){
-	location.href="informacion2.html";
-}
-function aInfo3(){
-	location.href="informacion3.html";
-}
-function aInfo4(){
-	location.href="informacion4.html";
-}
-function aInfo5(){
-	location.href="informacion5.html";
-}
 function aMap(){
 	location.href="map.html";
-}
-function aMap1(){
-	location.href="map1.html";
-}
-function aMap2(){
-	location.href="map2.html";
-}
-function aMap3(){
-	location.href="map3.html";
-}
-function aMap4(){
-	location.href="map4.html";
 }
 function aComercio(){
 	location.href="Comercio.html";
 }
-
-
-
+function aComida(){
+	location.href="Comida.html";
+}
+function aHospedaje(){
+	location.href="Hospedaje.html";
+}
+function aSalud(){
+	location.href="Salud.html";
+}
+function aTurismo(){
+	location.href="Turismo.html";
+}

@@ -102,6 +102,7 @@ function observador(){
         console.log('existe usuario activo');
         console.log(user.emailVerified);
         console.log(user.email);
+        console.log(sessionStorage.getItem("categoriaNom"));
         //muestra el correo del usuario en la etiqueta <li>
 		document.getElementById("userActivo").innerHTML = user.email;
         //hace visible el <li> cuando hay un usuario activo
@@ -125,6 +126,7 @@ function observador(){
       } else {
         // el usuario no ha iniciado sesion
         console.log('no existe usuario activo');
+        console.log(sessionStorage.getItem("categoriaNom"));
         estadoUser = false;
 		btn_inicia.style.display = "block";
 		// nm.style.display = "none";
@@ -205,10 +207,10 @@ function verifBotoncerrar(){
 
 }
 
-function verifEstadoComercio(){
+function verifEstadoSesion(){
 	if(estadoUser == false){
 		bootbox.confirm({
-	    message: "<h4 class='txt-bootbox'>Para agregar un nuevo comercio tienes que iniciar sesión</h4>",
+	    message: "<h4 class='txt-bootbox'>Para agregar un nuevo registro en la categoria de <strong>" + sessionStorage.getItem("categoriaNom") + "</strong> tienes que iniciar sesión</h4>",
 	    buttons: {
 	        confirm: {
 	            label: 'Inicia Sesión',
