@@ -208,25 +208,7 @@ var keys;
 									  closeButton: false,
 									  callback: function(){ 
 									  	//Funcion para redireccionar segun la categoria
-									  	switch(sessionStorage.getItem("categoriaNom")){
-									  		case "Comercio":
-									  			aComercio();
-									  			break;
-									  		case "Comida":
-									  			aComida();
-									  			break;
-									  		case "Hospedaje":
-									  			aHospedaje();
-									  			break;
-									  		case "Salud":
-									  			aSalud();
-									  			break;
-									  		case "Turismo":
-									  			aTurismo();
-									  			break;
-									  		default:
-									  			break;
-									  	}
+									  	location.href="Lugar.html";
 									  }
 								  })
 								});
@@ -234,10 +216,8 @@ var keys;
 							}	
 						 }//fin de la funcion
 
-// <--------------- Todas las Card de la Categoria Comercio ------------>
-function mostrarComercio(){
-	//categoriaNom = "Comercio";
-	sessionStorage.setItem("categoriaNom", "Comercio");
+// <--------------- Todas las Card segun categoria seleccionada ------------>
+function mostrarLugar(){
 	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
@@ -273,193 +253,6 @@ function mostrarComercio(){
 			 );
 	 		$("#comercio_item").append(
 		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
-		   );
-		});
-	 	}, function (errorObject) {
-			console.log("The read failed: " + errorObject.code);
-		});
- 	}, 2500);
-	});
-}
-
-//<------------- Todas las Card de la Categoria Comida -------------->
-function mostrarComida(){
-	sessionStorage.setItem("categoriaNom", "Comida");
-	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
-	// Cuadro de carga
-	var dialog = bootbox.dialog({
-    title: 'Por favor espera',
-    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
-	closeButton: false
-	});           
-	dialog.init(function(){
-	    setTimeout(function(){
-	        bootbox.hideAll(); 
-	    
-	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
-	 		snapshot.forEach(function(childSnapshot) { 
-	 		//key es el id de cada registro
-			    this.key = childSnapshot.key;
-	 			var ImgComida = childSnapshot.val().img_url;
-	 			var nombreComida = childSnapshot.val().Nombre;
-			 	var descripComida = childSnapshot.val().Descripcion;
-			 	var gps = childSnapshot.val().Ubicacion;
-	 		$("#comida_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgComida +
-	 		'"/>'
-	 		);
-	 		$("#comida_item").append(
-	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreComida
-	 		);
-	 		$("#comida_item").append(
-	 		'</h4><p>'
-	 		+ descripComida +
-	 		'</p>'
-			 );
-	 		$("#comida_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
-		   );
-		});
-	 	}, function (errorObject) {
-			console.log("The read failed: " + errorObject.code);
-		});
- 	}, 2500);
-	});
-}
-
-//<------------- Todas las Card de la Categoria Hospedaje -------------->
-function mostrarHospedaje(){
-	sessionStorage.setItem("categoriaNom", "Hospedaje");
-	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
-	// Cuadro de carga
-	var dialog = bootbox.dialog({
-    title: 'Por favor espera',
-    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
-	closeButton: false
-	});           
-	dialog.init(function(){
-	    setTimeout(function(){
-	        bootbox.hideAll(); 
-	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
-	 		snapshot.forEach(function(childSnapshot) { 
-	 		//key es el id de cada registro
-			    this.key = childSnapshot.key;
-	 			var ImgHospe = childSnapshot.val().img_url;
-	 			var nombreHospe = childSnapshot.val().Nombre;
-			 	var descripHospe = childSnapshot.val().Descripcion;
-			 	var gps = childSnapshot.val().Ubicacion;
-	 		$("#hospedaje_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgHospe +
-	 		'"/>'
-	 		);
-	 		$("#hospedaje_item").append(
-	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreHospe
-	 		);
-	 		$("#hospedaje_item").append(
-	 		'</h4><p>'
-	 		+ descripHospe +
-	 		'</p>'
-			 );
-	 		$("#hospedaje_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
-		   );
-		});
-	 	}, function (errorObject) {
-			console.log("The read failed: " + errorObject.code);
-		});
- 	}, 2500);
-	});
-}
-
-//<------------- Todas las Card de la Categoria Salud -------------->
-function mostrarSalud(){
-	sessionStorage.setItem("categoriaNom", "Salud");
-	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
-	// Cuadro de carga
-	var dialog = bootbox.dialog({
-    title: 'Por favor espera',
-    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
-	closeButton: false
-	});           
-	dialog.init(function(){
-	    setTimeout(function(){
-	        bootbox.hideAll(); 
-	    
-	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
-	 		snapshot.forEach(function(childSnapshot) { 
-	 		//key es el id de cada registro
-			    this.key = childSnapshot.key;
-	 			var ImgSalud = childSnapshot.val().img_url;
-	 			var nombreSalud = childSnapshot.val().Nombre;
-			 	var descripSalud = childSnapshot.val().Descripcion;
-			 	var gps = childSnapshot.val().Ubicacion;
-	 		$("#salud_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgSalud +
-	 		'"/>'
-	 		);
-	 		$("#salud_item").append(
-	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreSalud
-	 		);
-	 		$("#salud_item").append(
-	 		'</h4><p>'
-	 		+ descripSalud +
-	 		'</p>'
-			 );
-	 		$("#salud_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
-		   );
-		});
-	 	}, function (errorObject) {
-			console.log("The read failed: " + errorObject.code);
-		});
- 	}, 2500);
-	});
-}
-
-//<------------- Todas las Card de la Categoria Turismo -------------->
-function mostrarTurismo(){
-	sessionStorage.setItem("categoriaNom", "Turismo");
-	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
-	// Cuadro de carga
-	var dialog = bootbox.dialog({
-    title: 'Por favor espera',
-    message: '<p style="background-color:white;color:black;"><i class="fa fa-spin fa-spinner"></i> Cargando...</p>',
-	closeButton: false
-	});           
-	dialog.init(function(){
-	    setTimeout(function(){
-	        bootbox.hideAll(); 
-	    
-	 		firebase.database().ref("Categorias").child(sessionStorage.getItem("categoriaNom")).orderByKey().once("value").then(function(snapshot) { 
-	 		snapshot.forEach(function(childSnapshot) { 
-	 		//key es el id de cada registro
-			    this.key = childSnapshot.key;
-	 			var ImgTurismo = childSnapshot.val().img_url;
-	 			var nombreTuris = childSnapshot.val().Nombre;
-			 	var descripTuris = childSnapshot.val().Descripcion;
-			 	var gps = childSnapshot.val().Ubicacion;
-	 		$("#turismo_item").append(
-	 		'<div class="card"><img width="100%" heigth="80%" src="'
-	 		+ ImgTurismo +
-	 		'"/>'
-	 		);
-	 		$("#turismo_item").append(
-	 		'<div class="container" id="comercio_nombre"><h4>'
-	 		+ nombreTuris
-	 		);
-	 		$("#turismo_item").append(
-	 		'</h4><p>'
-	 		+ descripTuris +
-	 		'</p>'
-			 );
-	 		$("#turismo_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -555,30 +348,13 @@ function mostrarInfo() {
 			}, function (errorObject) {
 			   console.log("The read failed: " + errorObject.code);
 		   });
-	}, 1500);
+	}, 2500);
 	});
 }
-
-
 
 function aInfo(){
 	location.href="informacion.html";
 }
 function aMap(){
 	location.href="map.html";
-}
-function aComercio(){
-	location.href="Comercio.html";
-}
-function aComida(){
-	location.href="Comida.html";
-}
-function aHospedaje(){
-	location.href="Hospedaje.html";
-}
-function aSalud(){
-	location.href="Salud.html";
-}
-function aTurismo(){
-	location.href="Turismo.html";
 }
