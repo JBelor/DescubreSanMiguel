@@ -230,25 +230,7 @@ var keys;
 									  closeButton: false,
 									  callback: function(){ 
 									  	//Funcion para redireccionar segun la categoria
-									  	switch(sessionStorage.getItem("categoriaNom")){
-									  		case "Comercio":
-									  			aComercio();
-									  			break;
-									  		case "Comida":
-									  			aComida();
-									  			break;
-									  		case "Hospedaje":
-									  			aHospedaje();
-									  			break;
-									  		case "Salud":
-									  			aSalud();
-									  			break;
-									  		case "Turismo":
-									  			aTurismo();
-									  			break;
-									  		default:
-									  			break;
-									  	}
+									  	location.href="Lugar.html";
 									  }
 								  })
 								});
@@ -256,10 +238,8 @@ var keys;
 							}	
 						 }//fin de la funcion
 
-// <--------------- Todas las Card de la Categoria Comercio ------------>
-function mostrarComercio(){
-	//categoriaNom = "Comercio";
-	sessionStorage.setItem("categoriaNom", "Comercio");
+// <--------------- Todas las Card segun categoria seleccionada ------------>
+function mostrarLugar(){
 	document.getElementById("nombreCat").innerHTML = sessionStorage.getItem("categoriaNom");
 	// Cuadro de carga
 	var dialog = bootbox.dialog({
@@ -577,30 +557,13 @@ function mostrarInfo() {
 			}, function (errorObject) {
 			   console.log("The read failed: " + errorObject.code);
 		   });
-	}, 1500);
+	}, 2500);
 	});
 }
-
-
 
 function aInfo(){
 	location.href="informacion.html";
 }
 function aMap(){
 	location.href="map.html";
-}
-function aComercio(){
-	location.href="Comercio.html";
-}
-function aComida(){
-	location.href="Comida.html";
-}
-function aHospedaje(){
-	location.href="Hospedaje.html";
-}
-function aSalud(){
-	location.href="Salud.html";
-}
-function aTurismo(){
-	location.href="Turismo.html";
 }
