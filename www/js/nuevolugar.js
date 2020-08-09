@@ -284,7 +284,6 @@ function mostrarLugar(){
 	});
 }
 
-<<<<<<< HEAD
 //<------------- Todas las Card de la Categoria Comida -------------->
 function mostrarComida(){
 	sessionStorage.setItem("categoriaNom", "Comida");
@@ -472,8 +471,6 @@ function mostrarTurismo(){
 	});
 }
 
-=======
->>>>>>> 9e54c173a5f746deb800ae23ad23955432f2eedd
 //                           Informacion 
 // <<<<<<<<  Mostrando informacion segun categoria seleccionada >>>>>>>>>>
 function mostrarInfo() {
