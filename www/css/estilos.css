@@ -1,4 +1,19 @@
 @import"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+/* Importando fuente para el logo San Miguel de la navbar*/
+@font-face {
+  font-family: "SrabiScript";
+  src: url("../fonts/SrabiScript.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/SrabiScript.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/SrabiScript.otf") format("opentype"), /* Open Type Font */
+    url("../fonts/SrabiScript.svg") format("svg"), /* Legacy iOS */
+    url("../fonts/SrabiScript.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("../fonts/SrabiScript.woff") format("woff"), /* Modern Browsers */
+    url("../fonts/SrabiScript.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
     font-family: sans-serif;
     background:url(../img/Catedral.jpg) ;
@@ -503,7 +518,7 @@ a{
 
 #sm-logo{
     color: white;
-    font-family: "Srabi Script";
+    font-family: 'SrabiScript';
     font-size: 35px;
     margin-right: 0px;
     padding: 0px;
