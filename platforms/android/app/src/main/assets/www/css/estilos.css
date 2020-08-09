@@ -812,16 +812,9 @@ a{
         margin-left: 1px;
     }
 }
-@media(max-width:159px){
+@media(min-width:80px){
     #navbar-pre , .responsi{
-       
-        margin-left: 2px;
-    }
-}
-@media(max-width:148px){
-    #navbar-pre , .responsi{
-       
-        margin-left: -3px;
+        margin-left: -5px;
     }
 }
 
@@ -830,16 +823,13 @@ a{
         height: 139px;
     }
 }
-
-
-@media (min-height:820px){
+@media (min-height:665px){
     #card1 , #card2 ,#card3 ,#card4 ,#card5 {
         height: 162px;
     }
 }
-
-@media (min-height:665px){
+@media (max-height:500px){
     #card1 , #card2 ,#card3 ,#card4 ,#card5 {
-        height: 150px;
+        height: 85px;
     }
 }
