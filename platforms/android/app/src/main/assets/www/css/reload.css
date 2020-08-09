@@ -18,13 +18,20 @@ body{
     /* margin-top: 20%; */
 }
 .logo{
-    width: 300px;
-    height: 70px;
     margin: 150px auto 50px auto;
     font-size: 55px;
     text-shadow: -1px 2px 2px #000;
     text-align: center;
     color: azure;
+}
+
+#footer{
+    font-family: monospace;
+    font-size: 30px;
+    color: white;
+    flex-direction: column;
+    display: grid;
+    justify-items: center;
 }
 .loader-frame{
     width: 70px;
@@ -67,15 +74,6 @@ body{
     to {transform: rotate(-360deg);}
 }
 
-#footer{
-    font-family: monospace;
-    font-size: 30px;
-    color: white;
-    flex-direction: column;
-    display: grid;
-    justify-items: center;
-}
-
 @keyframes fadeout{
     from {opacity: 1;}
     to {opacity: 0;}
@@ -88,4 +86,24 @@ body{
         text-align: center;
     }
 }
+
+@media (max-height:570px){
+    .preload{
+        margin-top: -110px;
+    }
+}
+@media (max-height:475px){
+    .preload{
+        margin-top: -140px;
+    }
+}
+
+@media (max-width:290px){
+    .logo , #footer{
+       position: relative;
+        font-size: 18vw;
+    }
+}
+
+
 

@@ -65,7 +65,29 @@ var keys;
  		document.getElementById("imagen-firebase").innerHTML = result;
  	})
  }
- 
+
+ function ayuda(){
+	bootbox.confirm({
+		message: "<h4 class='txt-bootbox'><strong>Se recomienda entrar a Google Maps y obtener la ubicacion de ahí</strong></h4>",
+	    buttons: {
+	        confirm: {
+	            label: 'Abrir Google Maps',
+	            className: 'btn-primary'
+	        },
+	        cancel: {
+	            label: 'Ahora no',
+	            className: 'btn-danger'
+	        }
+	    },
+	    callback: function (result) {
+	        if (result==true) {
+	        	window.location.href="https://www.google.com/maps"
+	        }else{
+	        	bootbox.hideAll();
+	        }
+	    }
+		});
+ }
  //Formulario para agregar un nuevo lugar segun la categoria
  function nuevoLugar(){
 	// Validar formulario
@@ -319,7 +341,7 @@ function mostrarComida(){
 	 		'</p>'
 			 );
 	 		$("#comida_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -365,7 +387,7 @@ function mostrarHospedaje(){
 	 		'</p>'
 			 );
 	 		$("#hospedaje_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -412,7 +434,7 @@ function mostrarSalud(){
 	 		'</p>'
 			 );
 	 		$("#salud_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -459,7 +481,7 @@ function mostrarTurismo(){
 	 		'</p>'
 			 );
 	 		$("#turismo_item").append(
-		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
+		   '<div class="container-buttons" id="bottons"><button onclick="sessionStorage.setItem(\'key\', \''+key+'\');aInfo()" class="btn-primary">Información</button><button id="iniciar" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()" class="btn-secundary">Iniciar ruta</button></div></div></div><br>'		
 		   );
 		});
 	 	}, function (errorObject) {
@@ -542,11 +564,11 @@ function mostrarInfo() {
 									$("#comercio_item").append(
 									'<ul class="container" id="referencias"><a href="tel:'
 									+ tel +
-									'"><li><img id="img-contact" src="img/tel.png" width="15%">Teléfono</li></a></ul>'
+									'"><li><img id="espace1" src="img/tel.png" width="15%"><label>Teléfono</label></li></a></ul>'
 									);
 								}
 								$("#comercio_item").append(
-								'<ul class="container" id="referencias"><a href="map.html" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');"><li><img id="img-contact" src="img/ubicacion.png" width="15%"><label>Trazar ruta</label></li></a></ul>'
+								'<ul class="container" id="referencias"><a href="map.html" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');"><li><img id="espace" src="img/ubicacion.png" width="15%"><label>Trazar ruta</label></li></a></ul>'
 								);
 
 								// <button id="bt_list" onclick="sessionStorage.setItem(\'ubicacion\', \''+gps+'\');aMap()">Iniciar ruta</button>

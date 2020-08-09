@@ -69,10 +69,6 @@ header label:hover{
     
 }
 
-.menu li {
-    /* border-right: 3px solid #fff; */
-}
-
 .menu li:hover {
      background:  rgb(165, 165, 165);
 }
@@ -81,8 +77,7 @@ header label:hover{
     display: block;
     padding: 15px 20px;
     color: #fff;
-    text-decoration: none;
-    
+    text-decoration: none;  
 }
 
 div{
@@ -287,12 +282,13 @@ input{
   }
 
 p{
+    font-size: 20px;
     color:white;
     margin-bottom: 0px;
     padding: 15px 40px 40px;
     user-select: none;
     word-wrap: break-word;
-    text-align: center;
+    text-align: justify;
     background: rgba(15, 15, 15, 0.6);
 }
 
@@ -440,8 +436,8 @@ p{
     border: 2px solid #000000;
 }
 .bottom-ingre{
-    text-decoration: none;
-    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;
@@ -507,31 +503,16 @@ a{
 
 #sm-logo{
     color: white;
-    font-family: Srabi Script;
+    font-family: "Srabi Script";
     font-size: 35px;
     margin-right: 0px;
     padding: 0px;
-}
-
-#sm-logo-mapa{
-    color: white;
-    font-family: Srabi Script;
-    font-size: 35px;
-    margin-right: 50px;
-    
-}
-
-#nav-sm-logo{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-right: 5px;
 }
 
 #navbar-style{
     padding: 1px 10px;
     /*position: relative;*/
 }
-
 
 #btn-nuevo{
     padding-right: 0px;
@@ -547,8 +528,16 @@ a{
 
 #img-contact{
     padding-right: 15px;
-    margin: 5px 0;
-    /*padding-bottom: 15px;*/
+    margin: 1px;
+    
+}
+#espace{
+    margin-left: 20px;
+    padding-right: 15px;
+}
+#espace1{
+    margin-left: -3px;
+    padding-right: 15px;
 }
 
 #btns-contacto{
@@ -657,12 +646,21 @@ a{
     }
 }
 
-
 @media (max-width:900px){
     #card1 ,#card2 ,#card3 ,#card4 ,#card5 {
         margin: 0%;
+        font-size: 11vw;
+    } 
+}
+
+@media (max-width:234px){
+    .responsi {
+        margin: 0%;
+        font-size: 5vw;
+    } 
+    #sm-logo{
+        margin-left: -5px;
     }
-    
 }
 
 @media (max-width:357px){
@@ -710,13 +708,16 @@ a{
         margin-bottom: 10px;
     }
     
-    .bottom-regi, .bottom-ingre, .bottom-salir{
+    .bottom-regi, .bottom-salir{
         display: flex;
         flex-direction: column;
         text-align: center;
         width: 100%;
         justify-content: center;
         align-items: center;
+    }
+    .bottom-ingre{
+        margin-left: -5px;
     }
     .textbox{
         font-size: 10vw;
@@ -727,12 +728,15 @@ a{
     }
 }
 @media (max-width:295px){
-    .bottom-ingre, .bottom-regi, .bottom-salir{
+     .bottom-regi, .bottom-salir{
         margin-right: 100px;
         margin-left: 0px;
         width: 100%;
         justify-content: center;
         align-items: center;
+    }
+    .bottom-ingre {
+        margin-left: -20px;
     }
     .card-login{
         margin-right: 100px;
@@ -741,26 +745,70 @@ a{
        margin-left: -15px;
     }
 }
-@media(max-width:285px){
+@media (max-width:282px){
+    
+    .bottom-regi{
+        margin-left: -5px;
+    }
+   
+ }
+@media (max-width:210px){
+    
+   .bottom-ingre{
+       margin-left: -100px;
+   }
+  
+}
+@media (max-width:246px){
+    
+    .bottom-regi{
+        margin-left: -50px;
+    }
+   
+ }
+
+@media(min-width:20px){
     #sm-logo{
-        font-size: 30px;
-        margin-left: -20px;
+        display: contents;
+        font-size: 11vw;
     }
 }
-@media(max-width:270px){
+@media(min-width:228px){
     #sm-logo{
-        font-size: 15;
-        margin-left: -15px;
-    }
-}
-@media(max-width:250px){
-    #sm-logo{
-        font-size: 20px;
-        margin-left: -19px;
+       
+        margin-left: 50%;
     }
 }
 
+@media(max-width:210px){
+    #nav-sm-logo{
+       padding: 0;
+        margin-left: -13px;
+    }
+    .responsi{
+        position: relative;
+        margin-right: 1px;
+    }
+}
 
+@media(max-width:173px){
+    #nav-sm-logo{
+       padding: 0;
+        margin-left: 1px;
+    }
+}
+@media(max-width:159px){
+    #navbar-pre , .responsi{
+       
+        margin-left: 2px;
+    }
+}
+@media(max-width:148px){
+    #navbar-pre , .responsi{
+       
+        margin-left: -3px;
+    }
+}
 
 @media (min-height:730px){
     #card1 , #card2 ,#card3 ,#card4 ,#card5 {
